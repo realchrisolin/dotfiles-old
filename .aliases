@@ -1,0 +1,43 @@
+########################################################
+# vim:smd:ar:si:et:bg=dark:ts=4:sw=4:syntax=sh
+#
+# file: .aliases
+#
+# author: Chris Olin - http://chrisolin.com
+#
+# purpose: aliases for work 
+#
+# created date: 05-15-2013
+#
+# last modified: Thu May 16 11:56:14 2013
+#
+# license:
+########################################################
+
+# Default to human readable figures
+ alias df='df -h'
+ alias du='du -h'
+#
+# Misc :)
+ alias less='less -r'                          # raw control characters
+ alias whence='type -a'                        # where, of a sort
+ alias grep='grep --color'                     # show differences in colour
+ alias egrep='egrep --color=auto'              # show differences in colour
+ alias fgrep='fgrep --color=auto'              # show differences in colour
+#
+# Some shortcuts for different directory listings
+ alias ls='ls -hF --color=tty'                 # classify files in colour
+ alias dir='ls --color=auto --format=vertical'
+ alias vdir='ls --color=auto --format=long'
+ alias ll='ls -l'                              # long list
+ alias la='ls -A'                              # all but . and ..
+ alias l='ls -CF'                              #
+
+
+alias updatedb="updatedb --prunepaths='/proc /cygdrive/[^/]*'"
+alias vi="/usr/bin/vim"
+alias edithost="vim /cygdrive/c/WINDOWS/system32/drivers/etc/hosts"
+alias dec2hex='printf "0x%x\n"'
+alias nc='source newcase'
+alias g='git'
+
