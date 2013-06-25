@@ -1,0 +1,46 @@
+[user]
+	name = Chris Olin
+	email = contact@chrisolin.com
+[github]
+	user = BinaryMn
+	token = 746503313b3ea58a24abf0dcbdc2c582
+[core]
+	autocrlf = input
+	safecrlf = true
+	whitespace = trailing-space,space-before-tab,indent-with-non-tab
+[alias]
+    ai = add --interactive
+    c = commit
+    cm = commit -m
+    ca = commit --amend
+    caa = commit -a --amend -C HEAD
+
+    #reset
+    r = reset
+    r1 = reset HEAD^
+    r2 = reset HEAD^^
+    rh = reset --hard
+    rh1 = reset --hard HEAD^
+    rh2 = reset --hard HEAD^
+
+    #shortcuts
+    s = status
+    d = diff
+    a = add
+    rb = rebase
+    co = checkout
+    b = branch
+    l = log
+    f = fetch
+    m = merge
+    rmt = remote
+    p = pull
+    pp = push
+    cp = cherry-pick
+    gr = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+[branch]
+	autosetuprebase = always
