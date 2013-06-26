@@ -1,0 +1,41 @@
+########################################################
+# file: ~/.screenrc
+# author: Chris Olin - http://chrisolin.com
+# purpose: screen rc file for work
+# last modified: Mon, Jun 03, 2013 11:23:13 AM
+# vim:smd:ar:si:et:bg=dark:ts=4:sw=4 
+########################################################
+shell /bin/zsh
+defscrollback 9999
+screen -t bash1
+screen -t bash2
+screen -t bash3
+screen -t bash4
+screen -t bash5
+select 0
+
+term xterm
+#attrcolor b ".I" # use bright colors for bold
+
+bind ',' prev
+bind '.' next
+
+backtick 1 60 60 $HOME/bin/get_freemem
+
+startup_message off
+setenv LC_CTYPE en_US.UTF-8
+defutf8 on
+setenv DISPLAY ':0'
+bind = resize =
+bind + resize +1
+bind - resize -1
+bind _ resize max
+verbose on
+nethack on
+#caption always "%?%{ Wk}%-Lw%?%{Rk}%n*%f %t%?(%u)%?%?%{Wk}%+Lw%? %{Rk}%=%c %{rk}%d/%M/%Y"
+#sorendition 00 07
+hardstatus on
+#hardstatus alwayslastline "%{+b Rk}(%{-b g}$LOGNAME@%H%{+b R}) (%{-b g}%C %a%{+b R}) %{-b g} %n %t %h"
+hardstatus alwayslastline "%{= kR}[ %{G}%H %{R}] %L= %{W}%?%-Lw%{= GW}%{R}%45L>(%{B}%n*%t%?%{R})%{kW}%?%+Lw %= %{kW} %{W}%1`MB %{kY} %{kY}|%{kR} %-25=%C:%s%a ET %{+b kW}%{kB}%m.%d.%Y"
+#hardstatus alwayslastline "%{+b kr}[ %H ] (%n - %t) %{kw} Load: %l %-=  %{kb} %c:%s  %m.%d.%Y "
+#hardstatus alwayslastline "%-w %{+r} %n %t %{-} %+w %4`"
