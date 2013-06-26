@@ -2,57 +2,39 @@
 # vim:smd:ar:si:et:bg=dark:ts=4:sw=4
 # file: .zshrc
 # author: Chris Olin - http://chrisolin.com
-# purpose: 
+# purpose: personal zshrc configuration
 # created date: 03-18-2013
-# last modified: Tue, Jun 25, 2013 11:29:12 AM
+# last modified: Tue 28 May 2013 09:10:18 PM EDT
 # license:
 ########################################################
 autoload -U colors
 autoload -U promptinit 
 autoload -U compinit
-colors
 promptinit
 compinit 
 
-#Keep antigen commented out -- takes at least 20 seconds for zsh to load otherwise
+# Source shell aliases and functions
+source ~/.aliases
+source ~/.functions/*
 
-# Source antigen and load oh-my-zsh
-#if [ -f "${HOME}/.antigen/antigen.zsh" ]; then
-#    source ~/.antigen/antigen.zsh
-#else
-#    git clone https://github.com/zsh-users/antigen.git ~/.antigen
-#    source ~/.antigen/antigen.zsh
-#fi
-#   
-#antigen-use oh-my-zsh #this is what makes zsh take forever to start, but we need it to use the following theme
-#
+# Source and load the oh-my-zsh library
+source ~/.antigen/antigen.zsh
+antigen-use oh-my-zsh
+
 # Set theme
-#antigen-theme af-magic
-#
+antigen-theme af-magic
+
 # Syntax highlighting bundle
-# antigen-bundle zsh-users/zsh-syntax-highlighting #this makes cygwin painfully slow with a crapton of QueryFile operations. keep it commented unless you like waiting literal seconds for each charater you type to appear on your screen.
-#
+antigen-bundle zsh-users/zsh-syntax-highlighting
+
 # Apply settings
-#antigen-apply
-
-#Set required variables, then source and load oh-my-zsh -- grab it from git if it doesn't exist
-
-if [ -d "$HOME/.oh-my-zsh" ]; then
-    ZSH=$HOME/.oh-my-zsh #leave this alone
-    ZSH_THEME=af-magic #change this to whatever theme you want (`ls ~/.oh-my-zsh/themes` for a list)
-    source ~/.oh-my-zsh/oh-my-zsh.sh
-else
-    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-    ZSH=$HOME/.oh-my-zsh
-    ZSH_THEME=af-magic
-    source ~/.oh-my-zsh/oh-my-zsh.sh
-fi 
+antigen-apply
 
 # Autocompletion with arrow key interface
- zstyle ':completion:*' menu select
+zstyle ':completion:*' menu select
 
 # Autocompletion of command line switches for aliases
- setopt completealiases
+setopt completealiases
 
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
@@ -89,20 +71,30 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-finish
 fi
 
-#source aliases and functions
-source ~/.aliases
-source ~/.workaliases
-source ~/.functions/*
+# Set environment variables for gpg-agent.
+gpg_agent_info="${HOME}/.gnupg/gpg-agent-info"
+if [ -f $gpg_agent_info ]
+then
+	    source $gpg_agent_info
+	    export GPG_AGENT_INFO
+	    export GPG_TTY=$(tty)
+fi
 
-#set display, needed for CygwinX/xclip
-export DISPLAY=:0
+
+#path additions
+PATH=$PATH:/home/chris/bin:/opt/android-sdk:/opt/android-sdk/tools:/opt/android-sdk/platform-tools
+
+#gpg stuff
+export CHRISGPG="F6DD6966"
+export CONTACTGPG="02884713"
+export EMPLOYMENTGPG="EA1B581C"
+export GITHUBGPG="EF002BF9"
+export WORDPRESSGPG="C03228FF"
+export WORKGPG="0A0F6593"
+
+#oh-my-zsh/af-magic theme customizations
+RPROMPT='$FG[241]%n@%m $FG[124][%y]%{$reset_color%}%'
 
 #other stuff
-
-export RPROMPT='$FG[241]chris@work$FG[124][%y]%{$reset_color%}%' #custom prompt for use with oh-my-zsh af-magic theme. you'll want to change/delete this.
-export PATH=$PATH:/usr/local/bin:$HOME/bin
-export CYGWIN=mintty winsymlinks
-export TERM=xterm-256color
-export SCREENDIR=/tmp/uscreens/S-$USERNAME
-
-#cd $HOME #this sets the CWD to $HOME so it doesn't default to My Documents
+unsetopt NOMATCH #for android building
+unsetopt AUTO_NAME_DIRS

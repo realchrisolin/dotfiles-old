@@ -1,28 +1,34 @@
 """""""""""""""""""""""""""""""""""""""""
 "Author=> Chris Olin (www.chrisolin.com)
 "
-"Purpose => vim configuration for cygwin (work)
+"Purpose => vim configuration for cygwin
 "
 "Created date: 08-16-2012
 "
-"Last modified:Mon, Jun 24, 2013 11:51:18 AM
+"Last modified: Wed Feb  6 13:09:00 2013
 """""""""""""""""""""""""""""""""""""""""
 
-"Source plugins
-source $HOME/vim-git-aware/vimrc.template
+" DO NOT ENABLE THE GitBranch() FUNCTION ON LINE 89!
+" It causes strange charaters, like ^[OA, to appear
+" when scrolling or editing a file in vi.
+
+syntax on
+set nocompatible smd ar si et bg=dark ts=4 sw=4 
 
 """""""""""""""""""""""""""""
 " => The Basics
 """""""""""""""""""""""""""""
-syntax on
-set nocompatible hlsearch smd ar si et bg=dark ts=4 sw=4
-
-"Insert datestamp
+"Insert datestamp!
 :nnoremap <F5> "=strftime("%c")<CR>P
 :inoremap <F5> <C-R>=strftime("%c")<CR>
 
+"Turn on line numbers:
+"set number
 " Toggle line numbers and fold column for easy copying:
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+
+filetype plugin indent off
+autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 
 "Quick switching through buffer tabs
 :nnoremap <F11> :tabp<CR>
@@ -38,41 +44,28 @@ nmap <leader>w :w!<cr>
 
 " Return to last edit position (You want this!) *N*
 autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \ exe "normal! g`\"" |
-      \ endif
-
-
-""""""""""""""""""""""""""""""
-" => Cygwin stuff
-""""""""""""""""""""""""""""""
-"copy to clipboard
-:nnoremap <leader>c :'<,'>w !cat > /dev/clipboard<cr>
-
-"remove ^M dos line endings
-:nnoremap <leader>m :%s///<cr>
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-" I don't like backup/temp files scattered all over the place
-set backup
-set backupdir=/cygdrive/c/WINDOWS/Temp
-set backupskip=/cygdrive/c/WINDOWS/Temp/*
-set directory=/cygdrive/c/WINDOWS/Temp
-set writebackup
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-"if has('mouse')
-"      set mouse=a
-"      endif
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
 
 """"""""""""""""""""""""""""""
-" => Functions
+" => Statusline
 """"""""""""""""""""""""""""""
+" Always hide the statusline
+set laststatus=2
+
+"Git branch
+function! GitBranch()
+    let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
+    if branch != ''
+        return '   Git Branch: ' . substitute(branch, '\n', '', 'g')
+    en
+    return ''
+endfunction
+
 " Just a simple substitute. Be sure to change this to your own home directory.
 function! CurDir()
-return substitute(getcwd(), '/cygdrive/c/Documents and Settings/olichris', "~", "g")
+    return substitute(getcwd(), '/home/chris/', "~/", "g")
 endfunction
 
 " Just a blantantly obvious reminder when we're in paste mode
@@ -82,12 +75,6 @@ function! HasPaste()
     en
     return ''
 endfunction
-
-""""""""""""""""""""""""""""""
-" => Statusline
-""""""""""""""""""""""""""""""
-" Always hide the statusline
-set laststatus=2
 
 " Format the statusline
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L%{GitBranch()}
@@ -101,7 +88,7 @@ set statusline=
 set statusline +=%1*\%{HasPaste()}\ %*                  "got paste mode?
 set statusline +=%4*%{&ff}%*                            "file format
 set statusline +=%3*%y%*                                "file type
-set statusline +=%6*\ %{GitBranch()}                    "git branch, if it exists
+"set statusline +=%6*\ %{GitBranch()}                    "git branch, if it exists (KEEP DISABLED! BREAKS STUFF!)
 if cwd != cwfp                                          "this is to get rid of absolute path spam
     set statusline +=%1*\ CWD:\ \%<%{CurDir()}          "current working directory
 en
@@ -126,7 +113,7 @@ hi User6 ctermfg=3
 "I don't like long, endless lines when typing e-mails.
 au BufRead /tmp/mutt-* set tw=75
 "Except I have a habit going back and rewording sentences and VIM doesn't automagically adjust lines. ,r will now reformat the current paragraph!
-nmap <leader>r gqap
+nmap <leader>r gqap  
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -140,6 +127,8 @@ map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
+
+set backspace=indent,eol,start
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " => Insert modeline

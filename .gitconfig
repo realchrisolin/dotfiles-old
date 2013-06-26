@@ -7,7 +7,6 @@
 [core]
 	autocrlf = input
 	safecrlf = true
-	whitespace = trailing-space,space-before-tab,indent-with-non-tab
 [alias]
     ai = add --interactive
     c = commit
@@ -38,9 +37,20 @@
     pp = push
     cp = cherry-pick
     gr = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
+   # ll = log --pretty=format:%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate --stat
+    #ls = log --pretty=format:%C(yellow)%h%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate
+    #lds = log --pretty=format:%C(yellow)%h\ %ad%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate --date=short
+    #ld = log --pretty=format:%C(yellow)%h\ %ad%Cred%d\ %Creset%s%Cblue\ [%cn] --decorate --date=relative
+    #lc = !f() { git ll $1^..$1; }; f
+    #lnc = log --pretty=format:%h\ %s\ [%cn]
+    lg = log --graph --oneline --decorate --all
+   # la = !git config -l | grep alias | cut -c 7-[color]
 [color]
+    ui = auto
 	branch = auto
 	diff = auto
 	status = auto
 [branch]
 	autosetuprebase = always
+[push]
+	default = matching

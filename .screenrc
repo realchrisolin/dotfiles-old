@@ -1,24 +1,28 @@
 ########################################################
-# file: ~/.screenrc
+# file: .screenrc
 # author: Chris Olin - http://chrisolin.com
-# purpose: screen rc file for work
-# last modified: Mon, Jun 03, 2013 11:23:13 AM
-# vim:smd:ar:si:et:bg=dark:ts=4:sw=4 
+# purpose: personal screen rc file
+# created date: 03-05-2011
+# last modified: Fri 17 May 2013 03:43:57 PM EDT
+# license:
+# vim:smd:ar:si:et:bg=dark:ts=4:sw=4
 ########################################################
-shell /bin/zsh
-defscrollback 9999
-screen -t bash1
-screen -t bash2
-screen -t bash3
-screen -t bash4
-screen -t bash5
-select 0
 
-term xterm
-#attrcolor b ".I" # use bright colors for bold
+term screen-256color
+defscrollback 99999
+screen -t remote
+screen -t screen1
+screen -t screen2
+screen -t screen3
+screen -t screen4
+select 1
+altscreen on
+
+maptimeout 5
 
 bind ',' prev
 bind '.' next
+#bindkey "\005" stuff "E-  Elbereth^j"
 
 backtick 1 60 60 $HOME/bin/get_freemem
 
@@ -32,10 +36,10 @@ bind - resize -1
 bind _ resize max
 verbose on
 nethack on
-#caption always "%?%{ Wk}%-Lw%?%{Rk}%n*%f %t%?(%u)%?%?%{Wk}%+Lw%? %{Rk}%=%c %{rk}%d/%M/%Y"
 #sorendition 00 07
+caption splitonly "%L= %?%{ Wk}%-Lw%45>%?%{Rk}%n*%f %t%?(%u)%?%?%{Wk}%+Lw%? %-25=%{Rk}%=%C%a %{rk}%d/%M/%Y"
 hardstatus on
+hardstatus alwayslastline "%{= kR}[ %{G}%H %{R}] %L= %{W}%?%-Lw%{= GW}%{R}%45L>(%{B}%n*%t%?%{R})%{kW}%?%+Lw %= %{kW} %-48=%l | %1`MB %{kY} %-25=%C:%s%a EST %{+b kW}%{kB}%m.%d.%Y"
 #hardstatus alwayslastline "%{+b Rk}(%{-b g}$LOGNAME@%H%{+b R}) (%{-b g}%C %a%{+b R}) %{-b g} %n %t %h"
-hardstatus alwayslastline "%{= kR}[ %{G}%H %{R}] %L= %{W}%?%-Lw%{= GW}%{R}%45L>(%{B}%n*%t%?%{R})%{kW}%?%+Lw %= %{kW} %{W}%1`MB %{kY} %{kY}|%{kR} %-25=%C:%s%a ET %{+b kW}%{kB}%m.%d.%Y"
-#hardstatus alwayslastline "%{+b kr}[ %H ] (%n - %t) %{kw} Load: %l %-=  %{kb} %c:%s  %m.%d.%Y "
+#hardstatus alwayslastline "%{+b kr}[ %H ] (%n - %t) %{kw} Load: %l | Free Mem: %2`MB %-=  %{kb} %c:%s  %m.%d.%Y "
 #hardstatus alwayslastline "%-w %{+r} %n %t %{-} %+w %4`"
