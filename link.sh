@@ -16,3 +16,4 @@ do
 done
 rm -rf $HOME/.git
 rm $HOME/link.sh
+rm $HOME/README.work
