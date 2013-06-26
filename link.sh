@@ -4,7 +4,7 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: create symlinks in ~ for all files in branch
 # created date: 06-26-2013
-# last modified: Wed, Jun 26, 2013  8:54:37 AM
+# last modified: Wed, Jun 26, 2013  9:00:21 AM
 # license:
 ########################################################
 #!/bin/bash
@@ -14,3 +14,4 @@ for i in `ls -1A`;
 do
     ln -s $SRC/$i $HOME/$i
 done
+rm -rf $HOME/.git
