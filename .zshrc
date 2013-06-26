@@ -4,7 +4,7 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: personal zshrc configuration
 # created date: 03-18-2013
-# last modified: Tue 28 May 2013 09:10:18 PM EDT
+# last modified: Wed 26 Jun 2013 09:13:39 AM EDT
 # license:
 ########################################################
 autoload -U colors
@@ -15,6 +15,7 @@ compinit
 
 # Source shell aliases and functions
 source ~/.aliases
+source ~/.privatealiases
 source ~/.functions/*
 
 # Source and load the oh-my-zsh library
