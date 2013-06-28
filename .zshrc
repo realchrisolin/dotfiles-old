@@ -4,7 +4,7 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: 
 # created date: 03-18-2013
-# last modified: Tue, Jun 25, 2013 11:29:12 AM
+# last modified: Fri, Jun 28, 2013  5:13:13 PM
 # license:
 ########################################################
 autoload -U colors
@@ -104,5 +104,5 @@ export PATH=$PATH:/usr/local/bin:$HOME/bin
 export CYGWIN=mintty winsymlinks
 export TERM=xterm-256color
 export SCREENDIR=/tmp/uscreens/S-$USERNAME
-
+export EDITOR=vim
 #cd $HOME #this sets the CWD to $HOME so it doesn't default to My Documents
