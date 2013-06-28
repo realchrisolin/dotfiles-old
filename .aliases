@@ -4,7 +4,7 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: aliases for work 
 # created date: 05-15-2013
-# last modified: Wed, Jun 26, 2013  2:30:01 PM
+# last modified: Fri, Jun 28, 2013  5:15:24 PM
 # license:
 ########################################################
 
@@ -34,4 +34,5 @@ alias edithost="vim /cygdrive/c/WINDOWS/system32/drivers/etc/hosts"
 alias dec2hex='printf "0x%x\n"'
 alias nc='source newcase'
 alias g='git'
+alias t='task'
 alias ftp='lftp'
