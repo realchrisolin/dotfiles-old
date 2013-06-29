@@ -4,7 +4,7 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: personal zshrc configuration
 # created date: 03-18-2013
-# last modified: Sun 14 Jul 2013 01:28:36 PM EDT
+# last modified: Tue Oct 15 17:18:16 2013
 # license:
 ########################################################
 autoload -U colors
@@ -102,3 +102,5 @@ RPROMPT='$FG[241]%n@%m $FG[124][%y]%{$reset_color%}%'
 #other stuff
 unsetopt NOMATCH #for android building
 unsetopt AUTO_NAME_DIRS
+
+export TERM=xterm-256color
