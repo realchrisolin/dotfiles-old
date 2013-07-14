@@ -4,7 +4,7 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: personal zshrc configuration
 # created date: 03-18-2013
-# last modified: Wed 26 Jun 2013 09:13:39 AM EDT
+# last modified: Sun 14 Jul 2013 01:28:36 PM EDT
 # license:
 ########################################################
 autoload -U colors
@@ -19,6 +19,9 @@ source ~/.privatealiases
 source ~/.functions/*
 
 # Source and load the oh-my-zsh library
+if [ ! -d ~/.antigen ]; then
+    git clone https://github.com/zsh-users/antigen.git ~/.antigen
+fi
 source ~/.antigen/antigen.zsh
 antigen-use oh-my-zsh
 
