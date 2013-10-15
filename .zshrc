@@ -4,7 +4,7 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: personal zshrc configuration
 # created date: 03-18-2013
-# last modified: Tue Oct 15 17:18:16 2013
+# last modified: Tue Oct 15 17:19:24 2013
 # license:
 ########################################################
 autoload -U colors
@@ -104,3 +104,5 @@ unsetopt NOMATCH #for android building
 unsetopt AUTO_NAME_DIRS
 
 export TERM=xterm-256color
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
