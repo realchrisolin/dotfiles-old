@@ -4,7 +4,6 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: personal zshrc configuration
 # created date: 03-18-2013
-# last modified: Tue 29 Oct 2013 01:02:43 PM EDT
 # license:
 ########################################################
 autoload -U colors
@@ -75,16 +74,6 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-finish
 fi
 
-# Set environment variables for gpg-agent.
-gpg_agent_info="${HOME}/.gnupg/gpg-agent-info"
-if [ -f $gpg_agent_info ]
-then
-	    source $gpg_agent_info
-	    export GPG_AGENT_INFO
-	    export GPG_TTY=$(tty)
-fi
-
-
 #path additions
 PATH=$PATH:/home/chris/bin:/opt/android-sdk:/opt/android-sdk/tools:/opt/android-sdk/platform-tools
 
@@ -102,7 +91,6 @@ RPROMPT='$FG[241]%n@%m $FG[124][%y]%{$reset_color%}%'
 #other stuff
 unsetopt NOMATCH #for android building
 unsetopt AUTO_NAME_DIRS
-
 export TERM=xterm-256color
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
