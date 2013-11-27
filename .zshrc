@@ -4,7 +4,7 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: 
 # created date: 03-18-2013
-# last modified: Fri, Jun 28, 2013  5:13:13 PM
+# last modified: Wed, Nov 27, 2013  3:20:31 PM
 # license:
 ########################################################
 autoload -U colors
@@ -97,8 +97,31 @@ source ~/.functions/*
 #set display, needed for CygwinX/xclip
 export DISPLAY=:0
 
-#other stuff
+#autoconfigure ssh-agent
+SSH_ENV="$HOME/.ssh/environment"
 
+function start_agent {
+     echo "Initialising new SSH agent..."
+     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+     echo succeeded
+     chmod 600 "${SSH_ENV}"
+     . "${SSH_ENV}" > /dev/null
+     /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     #ps ${SSH_AGENT_PID} doesn't work under cywgin
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+         start_agent;
+     }
+else
+     start_agent;
+fi
+
+#other stuff
 export RPROMPT='$FG[241]chris@work$FG[124][%y]%{$reset_color%}%' #custom prompt for use with oh-my-zsh af-magic theme. you'll want to change/delete this.
 export PATH=$PATH:/usr/local/bin:$HOME/bin
 export CYGWIN=mintty winsymlinks
