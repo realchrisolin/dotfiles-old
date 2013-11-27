@@ -83,7 +83,6 @@ then
 	    export GPG_TTY=$(tty)
 fi
 
-
 #path additions
 PATH=$PATH:/home/chris/bin:/opt/android-sdk:/opt/android-sdk/tools:/opt/android-sdk/platform-tools:$HOME/.gem/ruby/2.0.0/bin
 
@@ -123,7 +122,6 @@ else
 fi
 
 #other stuff
-#export RPROMPT='$FG[241]chris@work$FG[124][%y]%{$reset_color%}%' #custom prompt for use with oh-my-zsh af-magic theme. you'll want to change/delete this.
 export PATH=$PATH:/usr/local/bin:$HOME/bin
 export TERM=xterm-256color
 export LANG="en_US.UTF-8"
