@@ -4,7 +4,11 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: personal zshrc configuration
 # created date: 03-18-2013
+<<<<<<< HEAD
 # last modified: Tue 11 Feb 2014 06:27:06 PM EST
+=======
+# last modified: Wed, Nov 27, 2013  3:20:31 PM
+>>>>>>> 9080b68... autoconfigure ssh-agent
 # license:
 ########################################################
 autoload -U colors
@@ -99,10 +103,33 @@ export WORKGPG="0A0F6593"
 #oh-my-zsh/af-magic theme customizations
 RPROMPT='$FG[241]%n@%m $FG[124][%y]%{$reset_color%}%'
 
-#other stuff
-unsetopt NOMATCH #for android building
-unsetopt AUTO_NAME_DIRS
+#autoconfigure ssh-agent
+SSH_ENV="$HOME/.ssh/environment"
 
+function start_agent {
+     echo "Initialising new SSH agent..."
+     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+     echo succeeded
+     chmod 600 "${SSH_ENV}"
+     . "${SSH_ENV}" > /dev/null
+     /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     #ps ${SSH_AGENT_PID} doesn't work under cywgin
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+         start_agent;
+     }
+else
+     start_agent;
+fi
+
+#other stuff
+#export RPROMPT='$FG[241]chris@work$FG[124][%y]%{$reset_color%}%' #custom prompt for use with oh-my-zsh af-magic theme. you'll want to change/delete this.
+export PATH=$PATH:/usr/local/bin:$HOME/bin
 export TERM=xterm-256color
 export LANG="en_US.UTF-8"
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
