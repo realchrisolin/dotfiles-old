@@ -4,7 +4,7 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: 
 # created date: 03-18-2013
-# last modified: Wed, Nov 27, 2013  3:20:31 PM
+# last modified: Mon 09 Dec 2013 04:41:41 PM EST
 # license:
 ########################################################
 autoload -U colors
@@ -17,36 +17,36 @@ compinit
 #Keep antigen commented out -- takes at least 20 seconds for zsh to load otherwise
 
 # Source antigen and load oh-my-zsh
-#if [ -f "${HOME}/.antigen/antigen.zsh" ]; then
-#    source ~/.antigen/antigen.zsh
-#else
-#    git clone https://github.com/zsh-users/antigen.git ~/.antigen
-#    source ~/.antigen/antigen.zsh
-#fi
-#   
-#antigen-use oh-my-zsh #this is what makes zsh take forever to start, but we need it to use the following theme
-#
+if [ -f "${HOME}/.antigen/antigen.zsh" ]; then
+    source ~/.antigen/antigen.zsh
+else
+    git clone https://github.com/zsh-users/antigen.git ~/.antigen
+    source ~/.antigen/antigen.zsh
+fi
+   
+antigen-use oh-my-zsh #this is what makes zsh take forever to start, but we need it to use the following theme
+
 # Set theme
-#antigen-theme af-magic
-#
+antigen-theme af-magic
+
 # Syntax highlighting bundle
-# antigen-bundle zsh-users/zsh-syntax-highlighting #this makes cygwin painfully slow with a crapton of QueryFile operations. keep it commented unless you like waiting literal seconds for each charater you type to appear on your screen.
-#
+ antigen-bundle zsh-users/zsh-syntax-highlighting #this makes cygwin painfully slow with a crapton of QueryFile operations. keep it commented unless you like waiting literal seconds for each charater you type to appear on your screen.
+
 # Apply settings
-#antigen-apply
+antigen-apply
 
 #Set required variables, then source and load oh-my-zsh -- grab it from git if it doesn't exist
 
-if [ -d "$HOME/.oh-my-zsh" ]; then
-    ZSH=$HOME/.oh-my-zsh #leave this alone
-    ZSH_THEME=af-magic #change this to whatever theme you want (`ls ~/.oh-my-zsh/themes` for a list)
-    source ~/.oh-my-zsh/oh-my-zsh.sh
-else
-    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-    ZSH=$HOME/.oh-my-zsh
-    ZSH_THEME=af-magic
-    source ~/.oh-my-zsh/oh-my-zsh.sh
-fi 
+#if [ -d "$HOME/.oh-my-zsh" ]; then
+#    ZSH=$HOME/.oh-my-zsh #leave this alone
+#    ZSH_THEME=af-magic #change this to whatever theme you want (`ls ~/.oh-my-zsh/themes` for a list)
+#    source ~/.oh-my-zsh/oh-my-zsh.sh
+#else
+#    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+#    ZSH=$HOME/.oh-my-zsh
+#    ZSH_THEME=af-magic
+#    source ~/.oh-my-zsh/oh-my-zsh.sh
+#fi 
 
 # Autocompletion with arrow key interface
  zstyle ':completion:*' menu select
@@ -122,6 +122,7 @@ else
 fi
 
 #other stuff
+unset AUTO_NAME_DIRS
 export RPROMPT='$FG[241]chris@work$FG[124][%y]%{$reset_color%}%' #custom prompt for use with oh-my-zsh af-magic theme. you'll want to change/delete this.
 export PATH=$PATH:/usr/local/bin:$HOME/bin
 export CYGWIN=mintty winsymlinks
