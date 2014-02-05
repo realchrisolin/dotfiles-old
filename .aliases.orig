@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+alias vi=/usr/bin/vim
+alias g=git
+=======
 ########################################################
 # vim:smd:ar:si:et:bg=dark:ts=4:sw=4:syntax=sh
 # file: .aliases
@@ -36,3 +40,4 @@ alias g='git'
 alias t='task'
 alias ftp='lftp'
 alias irssi='TERM=screen-256color irssi' #irssi needs this term value for screen/tmux so scrolling works properly
+>>>>>>> c58e748... add irssi alias to set term to screen-256color
