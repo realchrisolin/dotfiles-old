@@ -4,7 +4,6 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: 
 # created date: 03-18-2013
-# last modified: Mon 09 Dec 2013 04:41:41 PM EST
 # license:
 ########################################################
 autoload -U colors
