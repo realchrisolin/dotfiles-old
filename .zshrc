@@ -115,6 +115,6 @@ RPROMPT='$FG[241]%n@%m $FG[124][%y]%{$reset_color%}%'
 #other stuff
 unsetopt NOMATCH #for android building
 unsetopt AUTO_NAME_DIRS
-export TERM=screen-256color
+export TERM=xterm-256color
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
