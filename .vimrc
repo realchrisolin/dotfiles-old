@@ -51,8 +51,21 @@ autocmd BufReadPost *
 """"""""""""""""""""""""""""""
 " => Statusline
 """"""""""""""""""""""""""""""
-" Always hide the statusline
-set laststatus=2
+"copy to clipboard
+:nnoremap <leader>c :'<,'>w !xclip -i -selection clipboard,primary<cr>
+
+"remove ^M dos line endings
+:nnoremap <leader>m :%s///<cr>
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" I don't like backup/temp files scattered all over the place
+set backup
+set backupdir=/tmp/
+set backupskip=/tmp/*
+set directory=/tmp/
+set writebackup
 
 "Git branch
 function! GitBranch()
