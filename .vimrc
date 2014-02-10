@@ -47,7 +47,7 @@ autocmd BufReadPost *
 " => Cygwin stuff
 """"""""""""""""""""""""""""""
 "copy to clipboard
-:nnoremap <leader>c :'<,'>w !cat > /dev/clipboard<cr>
+:nnoremap <leader>c :'<,'>w !xclip -i -selection clipboard,primary<cr>
 
 "remove ^M dos line endings
 :nnoremap <leader>m :%s///<cr>
