@@ -4,7 +4,7 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: personal zshrc configuration
 # created date: 03-18-2013
-# last modified: Tue Oct 15 17:19:24 2013
+# last modified: Tue 11 Feb 2014 06:27:06 PM EST
 # license:
 ########################################################
 autoload -U colors
@@ -86,7 +86,7 @@ fi
 
 
 #path additions
-PATH=$PATH:/home/chris/bin:/opt/android-sdk:/opt/android-sdk/tools:/opt/android-sdk/platform-tools
+PATH=$PATH:/home/chris/bin:/opt/android-sdk:/opt/android-sdk/tools:/opt/android-sdk/platform-tools:$HOME/.gem/ruby/2.0.0/bin
 
 #gpg stuff
 export CHRISGPG="F6DD6966"
@@ -104,5 +104,6 @@ unsetopt NOMATCH #for android building
 unsetopt AUTO_NAME_DIRS
 
 export TERM=xterm-256color
+export LANG="en_US.UTF-8"
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
