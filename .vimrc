@@ -153,4 +153,4 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""
 " All the fun is in this file so we can comment one line to disable it.
 
-source $HOME/.vimheader
+"source $HOME/.vimheader
