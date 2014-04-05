@@ -4,11 +4,6 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: personal zshrc configuration
 # created date: 03-18-2013
-<<<<<<< HEAD
-# last modified: Tue 11 Feb 2014 06:27:06 PM EST
-=======
-# last modified: Wed, Nov 27, 2013  3:20:31 PM
->>>>>>> 9080b68... autoconfigure ssh-agent
 # license:
 ########################################################
 autoload -U colors
