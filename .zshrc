@@ -93,9 +93,6 @@ source ~/.aliases
 source ~/.workaliases
 source ~/.functions/*
 
-#set display, needed for CygwinX/xclip
-export DISPLAY=:0
-
 #autoconfigure ssh-agent
 SSH_ENV="$HOME/.ssh/environment"
 
@@ -123,7 +120,7 @@ fi
 #other stuff
 unset AUTO_NAME_DIRS
 export RPROMPT='$FG[241]chris@work$FG[124][%y]%{$reset_color%}%' #custom prompt for use with oh-my-zsh af-magic theme. you'll want to change/delete this.
-export PATH=$PATH:/usr/local/bin:$HOME/bin
+export PATH=$HOME/bin:$PATH:/usr/local/bin
 export CYGWIN=mintty winsymlinks
 export TERM=xterm-256color
 export SCREENDIR=/tmp/uscreens/S-$USERNAME

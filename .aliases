@@ -36,3 +36,9 @@ alias g='git'
 alias t='task'
 alias ftp='lftp'
 alias irssi='TERM=screen-256color irssi' #irssi needs this term value for screen/tmux so scrolling works properly
+
+#proofpoint aliases
+
+alias vc="msjnc --profile sc4 --connect"
+alias vd="msjnc --disconnect"
+alias vl="tail -f ~/.juniper_networks/network_connect/ncsvc.log"
