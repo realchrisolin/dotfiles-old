@@ -5,7 +5,6 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: 
 # created date:
-# last modified: 
 # license:
 ########################################################
 

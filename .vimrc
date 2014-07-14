@@ -14,6 +14,7 @@ source $HOME/vim-git-aware/vimrc.template
 """""""""""""""""""""""""""""
 " => The Basics
 """""""""""""""""""""""""""""
+filetype plugin indent on
 syntax on
 set nocompatible hlsearch smd ar si et bg=dark ts=4 sw=4
 
@@ -164,4 +165,4 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""
 " All the fun is in this file so we can comment one line to disable it.
 
-source $HOME/.vimheader
+"source $HOME/.vimheader
