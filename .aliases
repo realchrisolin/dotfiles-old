@@ -36,3 +36,4 @@ alias g='git'
 alias t='task'
 alias ftp='lftp'
 alias irssi='TERM=screen-256color irssi' #irssi needs this term value for screen/tmux so scrolling works properly
+alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
