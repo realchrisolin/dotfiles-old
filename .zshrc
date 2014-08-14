@@ -106,12 +106,14 @@ done
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
+     setopt local_options extended_glob
      echo "Initialising new SSH agent..."
      /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
      echo succeeded
      chmod 600 "${SSH_ENV}"
      . "${SSH_ENV}" > /dev/null
-     /usr/bin/ssh-add;
+     ssh-add
+     ssh-add $HOME/.ssh/keys/*[!.pub];
 }
 
 # Source SSH settings, if applicable
