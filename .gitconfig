@@ -1,9 +1,6 @@
 [user]
 	name = Chris Olin
 	email = contact@chrisolin.com
-[github]
-	user = BinaryMn
-	token = 746503313b3ea58a24abf0dcbdc2c582
 [core]
 	autocrlf = input
 	safecrlf = true
