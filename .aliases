@@ -1,3 +1,5 @@
 alias vi=/usr/bin/vim
 alias g=git
 alias updatemenu='xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu >~/.config/awesome/archmenu.lua'
+alias fm_play="play -r 32k -t raw -e s -b 16 -c 1 -V1 -"
+alias avconv=ffmpeg
