@@ -91,6 +91,7 @@ fi
 #source aliases and functions
 source ~/.aliases
 source ~/.workaliases
+source ~/.secretaliases
 
 fpath=(
     ~/.functions
