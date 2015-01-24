@@ -4,7 +4,7 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: aliases for work 
 # created date: 05-15-2013
-# last modified: Fri, Jun 28, 2013  5:15:24 PM
+# last modified: Thu, Jan 08, 2015  9:30:35 AM
 # license:
 ########################################################
 
@@ -36,3 +36,4 @@ alias nc='source newcase'
 alias g='git'
 alias t='task'
 alias ftp='lftp'
+alias npm='c:/Program\ Files\ \(x86\)/nodejs/npm'
