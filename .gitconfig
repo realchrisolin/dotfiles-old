@@ -41,3 +41,5 @@
 	status = auto
 [branch]
 	autosetuprebase = always
+[push]
+	default = matching
