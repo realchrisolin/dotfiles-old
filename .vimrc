@@ -12,6 +12,12 @@
 source $HOME/vim-git-aware/vimrc.template
 
 """""""""""""""""""""""""""""
+" => Initialization"
+"""""""""""""""""""""""""""""
+autocmd BufWritePre * :%s/\s\+$//e
+
+
+"""""""""""""""""""""""""""""
 " => The Basics
 """""""""""""""""""""""""""""
 syntax on
