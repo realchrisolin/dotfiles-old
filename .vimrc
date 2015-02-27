@@ -78,7 +78,7 @@ set writebackup
 """"""""""""""""""""""""""""""
 " Just a simple substitute. Be sure to change this to your own home directory.
 function! CurDir()
-return substitute(getcwd(), '/cygdrive/c/Documents and Settings/olichris', "~", "g")
+return substitute(getcwd(), '/cygdrive/c/Documents and Settings/Colin', "~", "g")
 endfunction
 
 " Just a blantantly obvious reminder when we're in paste mode
