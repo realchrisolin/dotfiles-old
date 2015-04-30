@@ -2,17 +2,17 @@
 # vim:smd:ar:si:et:bg=dark:ts=4:sw=4
 # file: .zshrc
 # author: Chris Olin - http://chrisolin.com
-# purpose: 
+# purpose:
 # created date: 03-18-2013
 # last modified: Wed, Nov 27, 2013  3:20:31 PM
 # license:
 ########################################################
 autoload -U colors
-autoload -U promptinit 
+autoload -U promptinit
 autoload -U compinit
 colors
 promptinit
-compinit 
+compinit
 
 #Keep antigen commented out -- takes at least 20 seconds for zsh to load otherwise
 
@@ -23,7 +23,7 @@ compinit
 #    git clone https://github.com/zsh-users/antigen.git ~/.antigen
 #    source ~/.antigen/antigen.zsh
 #fi
-#   
+#
 #antigen-use oh-my-zsh #this is what makes zsh take forever to start, but we need it to use the following theme
 #
 # Set theme
@@ -46,7 +46,7 @@ else
     ZSH=$HOME/.oh-my-zsh
     ZSH_THEME=af-magic
     source ~/.oh-my-zsh/oh-my-zsh.sh
-fi 
+fi
 
 # Autocompletion with arrow key interface
  zstyle ':completion:*' menu select
@@ -128,4 +128,5 @@ export CYGWIN=mintty winsymlinks
 export TERM=xterm-256color
 export SCREENDIR=/tmp/uscreens/S-$USERNAME
 export EDITOR=vim
+export JAVA_HOME="/cygdrive/c/Program Files/Java/jdk1.7.0_75"
 #cd $HOME #this sets the CWD to $HOME so it doesn't default to My Documents
