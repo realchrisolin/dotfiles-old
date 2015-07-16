@@ -14,7 +14,7 @@ source $HOME/vim-git-aware/vimrc.template
 """""""""""""""""""""""""""""
 " => Initialization"
 """""""""""""""""""""""""""""
-autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :%s/\s\+$//e
 
 
 """""""""""""""""""""""""""""
