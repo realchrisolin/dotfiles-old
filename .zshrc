@@ -90,9 +90,16 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
 fi
 
 #source aliases and functions
-source ~/.aliases
-source ~/.workaliases
-source ~/.functions/*
+if [ -f "${HOME}/.aliases" ]; then
+    source "${HOME}/.aliases"
+fi
+if [ -f "${HOME}/.secretaliases" ]; then
+    source "${HOME}/.secretaliases"
+fi
+if [ -f "${HOME}/.functions" ]; then
+    source "${HOME}/.functions/*"
+fi
+
 
 #set display, needed for CygwinX/xclip
 export DISPLAY=:0
