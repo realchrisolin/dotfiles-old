@@ -70,6 +70,9 @@ export PROMPT_COMMAND='history -a; history -r'
  if [ -f "${HOME}/.bash_aliases" ]; then
    source "${HOME}/.bash_aliases"
  fi
+ if [ -f "${HOME}/.secretaliases" ]; then
+   source "${HOME}/.secretaliases"
+ fi
 #
 # Some people use a different file for functions
  if [ -f "${HOME}/.bash_functions" ]; then
