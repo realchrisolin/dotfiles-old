@@ -85,5 +85,5 @@ export TERM=xterm-256color
 export SCREENDIR=/tmp/uscreens/S-$USERNAME
 export ANDROID_NDK=/usr/bin/android-ndk-r8b
 export TTYNAME=`tty|cut -b 6-` #we need this for my custom prompt
-export PS1="\[\e]0;\w\a\]\n\[\e[32m\]chris@work \[\e[33m\]($TTYNAME) \w\[\e[0m\] " #this replaces my prompt with something more pleasant on the eyes. 
+export PS1="\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]($TTYNAME) \w\[\e[0m\]\n\$" #append current pts in prompt
 export DISPLAY=:0 #this is for CygwinX/xclip
