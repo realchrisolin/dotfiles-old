@@ -12,10 +12,16 @@ autoload -U compinit
 promptinit
 compinit 
 
-# Source shell aliases and functions
-source ~/.aliases
-#source ~/.privatealiases
-source ~/.functions/*
+#source aliases and functions
+if [ -f "${HOME}/.aliases" ]; then
+    source "${HOME}/.aliases"
+fi
+if [ -f "${HOME}/.secretaliases" ]; then
+    source "${HOME}/.secretaliases"
+fi
+if [ -f "${HOME}/.functions" ]; then
+    source "${HOME}/.functions/*"
+fi
 
 # Source and load the oh-my-zsh library
 if [ ! -d ~/.antigen ]; then
