@@ -14,6 +14,17 @@ colors
 promptinit
 compinit
 
+#source aliases and functions
+if [ -f "${HOME}/.aliases" ]; then
+    source "${HOME}/.aliases"
+fi
+if [ -f "${HOME}/.secretaliases" ]; then
+    source "${HOME}/.secretaliases"
+fi
+if [ -f "${HOME}/.functions" ]; then
+    source "${HOME}/.functions/*"
+fi
+
 #Keep antigen commented out -- takes at least 20 seconds for zsh to load otherwise
 
 # Source antigen and load oh-my-zsh
@@ -88,18 +99,6 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-init
     zle -N zle-line-finish
 fi
-
-#source aliases and functions
-if [ -f "${HOME}/.aliases" ]; then
-    source "${HOME}/.aliases"
-fi
-if [ -f "${HOME}/.secretaliases" ]; then
-    source "${HOME}/.secretaliases"
-fi
-if [ -f "${HOME}/.functions" ]; then
-    source "${HOME}/.functions/*"
-fi
-
 
 #set display, needed for CygwinX/xclip
 export DISPLAY=:0
