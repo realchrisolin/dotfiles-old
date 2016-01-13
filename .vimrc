@@ -48,6 +48,11 @@ autocmd BufReadPost *
       \ exe "normal! g`\"" |
       \ endif
 
+" configure proper tabbing
+set autoindent
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
 
 """"""""""""""""""""""""""""""
 " => Cygwin stuff
