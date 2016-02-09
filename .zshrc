@@ -135,4 +135,5 @@ export TERM=xterm-256color
 export SCREENDIR=/tmp/uscreens/S-$USERNAME
 export EDITOR=vim
 export JAVA_HOME="/cygdrive/c/Program Files/Java/jre1.8.0_65/bin"
+export CLASSPATH=$CLASSPATH:$HOME/bin
 #cd $HOME #this sets the CWD to $HOME so it doesn't default to My Documents
