@@ -134,5 +134,5 @@ export CYGWIN=mintty winsymlinks
 export TERM=xterm-256color
 export SCREENDIR=/tmp/uscreens/S-$USERNAME
 export EDITOR=vim
-export JAVA_HOME="/cygdrive/c/Program Files/Java/jdk1.7.0_75"
+export JAVA_HOME="/cygdrive/c/PROGRAMDATA/ORACLE/JAVA/JAVAPATH"
 #cd $HOME #this sets the CWD to $HOME so it doesn't default to My Documents
