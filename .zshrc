@@ -131,7 +131,7 @@ fi
 
 #other stuff
 unset AUTO_NAME_DIRS
-export RPROMPT='$FG[241]chris@work$FG[124][%y]%{$reset_color%}%' #custom prompt for use with oh-my-zsh af-magic theme. you'll want to change/delete this.
+#export RPROMPT='$FG[241]chris@work$FG[124][%y]%{$reset_color%}%' #custom prompt for use with oh-my-zsh af-magic theme. you'll want to change/delete this.
 export PATH=$HOME/bin:$PATH:/usr/local/bin
 export CYGWIN=mintty winsymlinks
 export TERM=xterm-256color
