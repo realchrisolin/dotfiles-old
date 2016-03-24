@@ -1,0 +1,3 @@
+[submodule "vim-git-aware"]
+	path = vim-git-aware
+	url = git://github.com/awildcolin/vim-git-aware.git
