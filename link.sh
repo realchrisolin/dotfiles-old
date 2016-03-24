@@ -4,7 +4,6 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: create symlinks in ~ for all files in branch
 # created date: 06-26-2013
-# last modified: Wed 26 Jun 2013 09:19:14 AM EDT
 # license:
 ########################################################
 #!/bin/bash
