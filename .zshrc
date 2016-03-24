@@ -137,5 +137,5 @@ export CYGWIN=mintty winsymlinks
 export TERM=xterm-256color
 export SCREENDIR=/tmp/uscreens/S-$USERNAME
 export EDITOR=vim
-export TNL_SERVER=bh.sc4.proofpoint.com
+#export TNL_SERVER=bh.sc4.proofpoint.com
 #cd $HOME #this sets the CWD to $HOME so it doesn't default to My Documents
