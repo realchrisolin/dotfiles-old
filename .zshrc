@@ -24,8 +24,9 @@ fi
 if [ -f "${HOME}/.functions" ]; then
     source "${HOME}/.functions/*"
 fi
-if [-f "${HOME}/.buildenv-blackboard" ]; then
+if [ -f "${HOME}/.buildenv-blackboard" ]; then
     source "${HOME}/.buildenv-blackboard"
+fi
 
 #Keep antigen commented out -- takes at least 20 seconds for zsh to load otherwise
 
