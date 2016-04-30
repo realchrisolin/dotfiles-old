@@ -137,6 +137,6 @@ export CYGWIN="mintty winsymlinks:native"
 export TERM=xterm-256color
 export SCREENDIR=/tmp/uscreens/S-$USERNAME
 export EDITOR=vim
-export JAVA_HOME="/cygdrive/c/Program Files/Java/jdk1.7.0_75"
+export JAVA_HOME="/cygdrive/c/ProgramFiles/Java/jdk1.8.0_25" #I set a symlink pointing ProgramFiles to Program Files under C: to fix an issue with the space in Program Files not being escaped
 export CLASSPATH=$CLASSPATH:$HOME/bin
 #cd $HOME #this sets the CWD to $HOME so it doesn't default to My Documents
