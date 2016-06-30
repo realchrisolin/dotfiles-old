@@ -1,6 +1,0 @@
-autocmd bufnewfile * so $HOME/vimheader.txt
-autocmd bufnewfile * exe "1," . 3 . "g/file:.*/s//file: " .expand("%:t")
-autocmd bufnewfile * exe "1," . 6 . "g/created date:.*/s//created date: " .strftime("%m-%d-%Y")
-autocmd Bufwritepre,filewritepre * execute "normal ma"
-autocmd Bufwritepre,filewritepre * exe "1," . 7 . "g/last modified:.*/s/last modified:.*/last modified: " .strftime("%c")
-autocmd bufwritepost,filewritepost * execute "normal `a"
