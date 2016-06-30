@@ -115,9 +115,6 @@ else
      start_agent;
 fi
 
-#oh-my-zsh/af-magic theme customizations
-RPROMPT='$FG[241]%n@%m $FG[124][%y]%{$reset_color%}%'
-
 #other stuff
 unsetopt NOMATCH #for android building
 unsetopt AUTO_NAME_DIRS
