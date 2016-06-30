@@ -14,6 +14,8 @@ SRC=`pwd`
 git submodule init
 git submodule update
 
+git submodule update
+
 for i in `ls -1A -I .git -I link.sh`;
 do
 	if [ -f $HOME/$i ]; then
@@ -23,9 +25,9 @@ do
 
 	if [ -d $HOME/$i ]; then
 		echo -e "\e[1;33mExisting directory '$i' exists, moving to '$i.orig'"
-		if [ -L $HOME/$i.orig ]; then
-			echo -e "\e[1;31mWARNING! '$i.orig' already exists and is a symlink. Deleting to prevent nested symlinks"
-			rm -rf $HOME/$i.orig
+			if [ -L $HOME/$i.orig ]; then
+				echo -e "\e[1;31mWARNING! '$i.orig' already exists and is a symlink. Deleting to prevent nested symlinks"
+				rm -rf $HOME/$i.orig
 		fi
 		mv $HOME/$i $HOME/$i.orig
 	fi
