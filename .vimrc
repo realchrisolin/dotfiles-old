@@ -12,8 +12,9 @@
 " It causes strange charaters, like ^[OA, to appear
 " when scrolling or editing a file in vi.
 
-syntax on
 set nocompatible smd ar si et bg=dark ts=4 sw=4 
+syntax on
+filetype plugin indent on
 
 """""""""""""""""""""""""""""
 " => The Basics
@@ -26,8 +27,6 @@ set nocompatible smd ar si et bg=dark ts=4 sw=4
 "set number
 " Toggle line numbers and fold column for easy copying:
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
-
-filetype plugin indent off
 autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 
 "Quick switching through buffer tabs
