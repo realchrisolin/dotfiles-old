@@ -24,10 +24,26 @@ fi
 source ~/.antigen/antigen.zsh
 antigen-use oh-my-zsh
 
-# Set theme
-antigen-theme af-magic
+# configure prompt colors
+if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
+local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
+eval my_gray='$FG[237]'
+eval my_orange='$FG[214]'
 
-# Syntax highlighting bundle
+# git color settings
+ZSH_THEME_GIT_PROMPT_PREFIX="$FG[075](branch:"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+ZSH_THEME_GIT_PROMPT_DIRTY="$my_orange*%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="$FG[075])%{$reset_color%}"
+
+# set prompts
+PROMPT='$FG[124][%y]%{$reset_color%}%  $FG[032]%~ \
+$(git_prompt_info) \
+$FG[105]%(!.#.»)%{$reset_color%} '
+PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
+RPS1='${return_code}'
+
+# syntax highlighting bundle
 antigen-bundle zsh-users/zsh-syntax-highlighting
 
 # Apply settings
