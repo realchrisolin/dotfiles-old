@@ -12,6 +12,14 @@ autoload -U compinit
 promptinit
 compinit 
 
+# source aliases
+if [ -f "${HOME}/.aliases" ]; then
+    source "${HOME}/.aliases"
+fi
+if [ -f "${HOME}/.secretaliases" ]; then
+    source "${HOME}/.secretaliases"
+fi
+
 # source and load the oh-my-zsh library
 if [ ! -d ~/.antigen ]; then
     git clone https://github.com/zsh-users/antigen.git ~/.antigen
