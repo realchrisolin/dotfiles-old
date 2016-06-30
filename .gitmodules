@@ -1,6 +1,6 @@
 [submodule "vim-git-aware"]
-	path = vim-git-aware
+	path = .vim/bundles/vim-git-aware
 	url = git://github.com/awildcolin/vim-git-aware.git
 [submodule "bundle/vim-pathogen"]
-	path = bundle/vim-pathogen
+	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
