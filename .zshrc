@@ -23,7 +23,7 @@ if [ -f "${HOME}/.functions" ]; then
     source "${HOME}/.functions/*"
 fi
 
-# Source and load the oh-my-zsh library
+# source and load the oh-my-zsh library
 if [ ! -d ~/.antigen ]; then
     git clone https://github.com/zsh-users/antigen.git ~/.antigen
 fi
@@ -36,13 +36,13 @@ antigen-theme garyblessington
 # Syntax highlighting bundle
 antigen-bundle zsh-users/zsh-syntax-highlighting
 
-# Apply settings
+# apply settings
 antigen-apply
 
-# Autocompletion with arrow key interface
+# autocompletion with arrow key interface
 zstyle ':completion:*' menu select
 
-# Autocompletion of command line switches for aliases
+# autocompletion of command line switches for aliases
 setopt completealiases
 
 # create a zkbd compatible hash;
