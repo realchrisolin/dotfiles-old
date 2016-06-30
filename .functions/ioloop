@@ -1,7 +1,0 @@
-ioloop() {
-    FIFO=$(mktemp -u /tmp/ioloop_$$_XXXXXX ) &&
-    trap "rm -f $FIFO" EXIT &&
-    mkfifo $FIFO &&
-    ( : <$FIFO & ) &&    # avoid deadlock on opening pipe
-    exec >$FIFO <$FIFO
-}
