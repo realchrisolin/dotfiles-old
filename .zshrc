@@ -122,7 +122,6 @@ else
 fi
 
 #other stuff
-export RPROMPT='$FG[241]colin@work$FG[124][%y]%{$reset_color%}%' #custom prompt for use with oh-my-zsh af-magic theme. you'll want to change/delete this.
 export PATH=$PATH:/usr/local/bin:$HOME/bin
 export CYGWIN="mintty winsymlinks:native"
 export TERM=xterm-256color
