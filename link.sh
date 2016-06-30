@@ -25,6 +25,4 @@ do
 	echo "Symlinking $SRC/$i to $HOME/$i"
 	ln -s $SRC/$i $HOME/$i
 done
-rm -rf $HOME/.git
-rm $HOME/link.sh
 
