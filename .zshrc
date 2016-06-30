@@ -13,8 +13,6 @@ colors
 promptinit
 compinit 
 
-# keep antigen commented out -- takes at least 20 seconds for zsh to load otherwise
-
 # source antigen and load oh-my-zsh
 if [ -f "${HOME}/.antigen/antigen.zsh" ]; then
     source ~/.antigen/antigen.zsh
