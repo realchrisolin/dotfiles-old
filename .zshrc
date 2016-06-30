@@ -13,9 +13,9 @@ colors
 promptinit
 compinit 
 
-#Keep antigen commented out -- takes at least 20 seconds for zsh to load otherwise
+# keep antigen commented out -- takes at least 20 seconds for zsh to load otherwise
 
-# Source antigen and load oh-my-zsh
+# source antigen and load oh-my-zsh
 if [ -f "${HOME}/.antigen/antigen.zsh" ]; then
     source ~/.antigen/antigen.zsh
 else
@@ -47,10 +47,10 @@ RPS1='${return_code}'
 # syntax highlighting bundle
 antigen-bundle zsh-users/zsh-syntax-highlighting
 
-# Apply settings
+# apply settings
 antigen-apply
 
-#Set required variables, then source and load oh-my-zsh -- grab it from git if it doesn't exist
+# set required variables, then source and load oh-my-zsh -- grab it from git if it doesn't exist
 
 #if [ -d "$HOME/.oh-my-zsh" ]; then
 #    ZSH=$HOME/.oh-my-zsh #leave this alone
@@ -63,10 +63,10 @@ antigen-apply
 #    source ~/.oh-my-zsh/oh-my-zsh.sh
 #fi 
 
-# Autocompletion with arrow key interface
+# autocompletion with arrow key interface
  zstyle ':completion:*' menu select
 
-# Autocompletion of command line switches for aliases
+# autocompletion of command line switches for aliases
  setopt completealiases
 
 # create a zkbd compatible hash;
@@ -91,7 +91,7 @@ key[PageDown]=${terminfo[knp]}
 [[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
 [[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
 
-# Finally, make sure the terminal is in application mode, when zle is
+# finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     function zle-line-init () {
@@ -104,7 +104,7 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-finish
 fi
 
-#source aliases and functions
+# source aliases and functions
 source ~/.aliases
 source ~/.workaliases
 source ~/.secretaliases
@@ -133,7 +133,7 @@ function start_agent {
      ssh-add $HOME/.ssh/keys/*[!.pub];
 }
 
-# Source SSH settings, if applicable
+# source SSH settings, if applicable
 
 if [ -f "${SSH_ENV}" ]; then
      . "${SSH_ENV}" > /dev/null
