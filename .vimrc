@@ -8,20 +8,25 @@
 "Last modified:Mon, Jun 24, 2013 11:51:18 AM
 """""""""""""""""""""""""""""""""""""""""
 
-"Source plugins
-source $HOME/vim-git-aware/vimrc.template
-
 """""""""""""""""""""""""""""
 " => Initialization"
 """""""""""""""""""""""""""""
 "autocmd BufWritePre * :%s/\s\+$//e
-
+"Source plugins
+source $HOME/vim-git-aware/vimrc.template
 
 """""""""""""""""""""""""""""
 " => The Basics
 """""""""""""""""""""""""""""
+
+" DO NOT ENABLE THE GitBranch() FUNCTION ON LINE 89!
+" It causes strange charaters, like ^[OA, to appear
+" when scrolling or editing a file in vi.
+
+execute pathogen#infect()
+set nocompatible smd ar si et bg=dark ts=4 sw=4
 syntax on
-set nocompatible hlsearch smd ar si et bg=dark ts=4 sw=4
+filetype plugin indent on
 
 "Insert datestamp
 :nnoremap <F5> "=strftime("%c")<CR>P
