@@ -20,9 +20,18 @@ git submodule update
 for i in `ls -1A -I .git -I link.sh`;
 do
 	if [ -f $HOME/$i ]; then
-		echo "Existing file '$i' found, renaming to '$i.orig'"
+		echo -e "\e[1;33mExisting file '$i' found, renaming to '$i.orig'"
 		mv  $HOME/$i $HOME/$i.orig
 	fi
-	echo "Symlinking $SRC/$i to $HOME/$i"
+
+	if [ -d $HOME/$i ]; then
+		echo -e "\e[1;33mExisting directory '$i' exists, moving to '$i.orig'"
+		if [ -L $HOME/$i.orig ]; then
+			echo -e "\e[1;31mWARNING! '$i.orig' already exists and is a symlink. Deleting to prevent nested symlinks"
+			rm -rf $HOME/$i.orig
+		fi
+		mv $HOME/$i $HOME/$i.orig
+	fi
+	echo -e "\e[1;32mSymlinking $SRC/$i to $HOME/$i"
 	ln -s $SRC/$i $HOME/$i
 done
