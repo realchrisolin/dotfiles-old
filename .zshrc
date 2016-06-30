@@ -110,9 +110,6 @@ export GITHUBGPG="EF002BF9"
 export WORDPRESSGPG="C03228FF"
 export WORKGPG="0A0F6593"
 
-#oh-my-zsh/af-magic theme customizations
-RPROMPT='$FG[241]%n@%m $FG[124][%y]%{$reset_color%}%'
-
 #autoconfigure ssh-agent
 SSH_ENV="$HOME/.ssh/environment"
 
