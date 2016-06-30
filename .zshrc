@@ -14,15 +14,12 @@ colors
 promptinit
 compinit
 
-#source aliases and functions
+#source aliases
 if [ -f "${HOME}/.aliases" ]; then
     source "${HOME}/.aliases"
 fi
 if [ -f "${HOME}/.secretaliases" ]; then
     source "${HOME}/.secretaliases"
-fi
-if [ -f "${HOME}/.functions" ]; then
-    source "${HOME}/.functions/*"
 fi
 
 if [ -d "$HOME/.oh-my-zsh" ]; then
