@@ -50,74 +50,11 @@ antigen-bundle zsh-users/zsh-syntax-highlighting
 # apply settings
 antigen-apply
 
-# set required variables, then source and load oh-my-zsh -- grab it from git if it doesn't exist
-
-#if [ -d "$HOME/.oh-my-zsh" ]; then
-#    ZSH=$HOME/.oh-my-zsh #leave this alone
-#    ZSH_THEME=af-magic #change this to whatever theme you want (`ls ~/.oh-my-zsh/themes` for a list)
-#    source ~/.oh-my-zsh/oh-my-zsh.sh
-#else
-#    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-#    ZSH=$HOME/.oh-my-zsh
-#    ZSH_THEME=af-magic
-#    source ~/.oh-my-zsh/oh-my-zsh.sh
-#fi 
-
 # autocompletion with arrow key interface
  zstyle ':completion:*' menu select
 
 # autocompletion of command line switches for aliases
  setopt completealiases
-
-# create a zkbd compatible hash;
-# to add other keys to this hash, see: man 5 terminfo
-typeset -A key
-
-key[Home]=${terminfo[khome]}
-
-key[End]=${terminfo[kend]}
-key[Insert]=${terminfo[kich1]}
-key[Delete]=${terminfo[kdch1]}
-key[PageUp]=${terminfo[kpp]}
-key[PageDown]=${terminfo[knp]}
-
-# setup key accordingly
-[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
-[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
-[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
-[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
-[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"      up-line-or-history
-[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    down-line-or-history
-[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
-[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
-
-# finally, make sure the terminal is in application mode, when zle is
-# active. Only then are the values from $terminfo valid.
-if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-    function zle-line-init () {
-        printf '%s' ${terminfo[smkx]}
-    }
-    function zle-line-finish () {
-        printf '%s' ${terminfo[rmkx]}
-    }
-    zle -N zle-line-init
-    zle -N zle-line-finish
-fi
-
-# source aliases and functions
-source ~/.aliases
-source ~/.workaliases
-source ~/.secretaliases
-
-fpath=(
-    ~/.functions
-    "${fpath[@]}"
-)
-
-for func in `ls ~/.functions/`
-do
-    autoload -Uz $func
-done
 
 #autoconfigure ssh-agent
 SSH_ENV="$HOME/.ssh/environment"
@@ -148,7 +85,6 @@ fi
 #other stuff
 unset AUTO_NAME_DIRS
 export PATH=$HOME/bin:$PATH:/usr/local/bin
-export CYGWIN=mintty winsymlinks
 export TERM=xterm-256color
 export SCREENDIR=/tmp/uscreens/S-$USERNAME
 export EDITOR=vim
