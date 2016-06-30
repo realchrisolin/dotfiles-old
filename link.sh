@@ -12,7 +12,7 @@
 SRC=`pwd`
 
 if [ ! -d vim-git-aware ] ; then
-    git submodule init
+	git submodule init
 fi
 
 git submodule update
