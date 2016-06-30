@@ -12,7 +12,7 @@ autoload -U compinit
 promptinit
 compinit 
 
-# Source and load the oh-my-zsh library
+# source and load the oh-my-zsh library
 if [ ! -d ~/.antigen ]; then
     git clone https://github.com/zsh-users/antigen.git ~/.antigen
 fi
@@ -41,16 +41,16 @@ RPS1='${return_code}'
 # syntax highlighting bundle
 antigen-bundle zsh-users/zsh-syntax-highlighting
 
-# Apply settings
+# apply settings
 antigen-apply
 
-# Autocompletion with arrow key interface
+# autocompletion with arrow key interface
 zstyle ':completion:*' menu select
 
-# Autocompletion of command line switches for aliases
+# autocompletion of command line switches for aliases
 setopt completealiases
 
-# Set environment variables for gpg-agent.
+# set environment variables for gpg-agent.
 gpg_agent_info="${HOME}/.gnupg/gpg-agent-info"
 if [ -f $gpg_agent_info ]
 then
@@ -59,10 +59,10 @@ then
 	    export GPG_TTY=$(tty)
 fi
 
-#path additions
+# path additions
 PATH=$PATH:/home/chris/bin:/opt/android-sdk:/opt/android-sdk/tools:/opt/android-sdk/platform-tools:$HOME/.gem/ruby/2.2.0/bin
 
-#autoconfigure ssh-agent
+# autoconfigure ssh-agent
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
@@ -74,7 +74,7 @@ function start_agent {
      /usr/bin/ssh-add;
 }
 
-# Source SSH settings, if applicable
+# source SSH settings, if applicable
 
 if [ -f "${SSH_ENV}" ]; then
      . "${SSH_ENV}" > /dev/null
