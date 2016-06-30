@@ -13,7 +13,7 @@
 """""""""""""""""""""""""""""
 "autocmd BufWritePre * :%s/\s\+$//e
 "Source plugins
-source $HOME/vim-git-aware/vimrc.template
+source $HOME/.vim/bundle/vim-git-aware/vimrc.template
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
