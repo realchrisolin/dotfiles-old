@@ -24,43 +24,34 @@ fi
 if [ -f "${HOME}/.functions" ]; then
     source "${HOME}/.functions/*"
 fi
-if [ -f "${HOME}/.buildenv-blackboard" ]; then
-    source "${HOME}/.buildenv-blackboard"
-fi
-
-#Keep antigen commented out -- takes at least 20 seconds for zsh to load otherwise
-
-# Source antigen and load oh-my-zsh
-#if [ -f "${HOME}/.antigen/antigen.zsh" ]; then
-#    source ~/.antigen/antigen.zsh
-#else
-#    git clone https://github.com/zsh-users/antigen.git ~/.antigen
-#    source ~/.antigen/antigen.zsh
-#fi
-#
-#antigen-use oh-my-zsh #this is what makes zsh take forever to start, but we need it to use the following theme
-#
-# Set theme
-#antigen-theme af-magic
-#
-# Syntax highlighting bundle
-# antigen-bundle zsh-users/zsh-syntax-highlighting #this makes cygwin painfully slow with a crapton of QueryFile operations. keep it commented unless you like waiting literal seconds for each charater you type to appear on your screen.
-#
-# Apply settings
-#antigen-apply
-
-#Set required variables, then source and load oh-my-zsh -- grab it from git if it doesn't exist
 
 if [ -d "$HOME/.oh-my-zsh" ]; then
     ZSH=$HOME/.oh-my-zsh #leave this alone
-    ZSH_THEME=af-magic #change this to whatever theme you want (`ls ~/.oh-my-zsh/themes` for a list)
     source ~/.oh-my-zsh/oh-my-zsh.sh
 else
     git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
     ZSH=$HOME/.oh-my-zsh
-    ZSH_THEME=af-magic
     source ~/.oh-my-zsh/oh-my-zsh.sh
 fi
+
+# configure prompt colors
+if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
+local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
+eval my_gray='$FG[237]'
+eval my_orange='$FG[214]'
+
+# git color settings
+ZSH_THEME_GIT_PROMPT_PREFIX="$FG[075](branch:"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+ZSH_THEME_GIT_PROMPT_DIRTY="$my_orange*%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="$FG[075])%{$reset_color%}"
+
+# set prompts
+PROMPT='$FG[124][%y]%{$reset_color%}%  $FG[032]%~ \
+$(git_prompt_info) \
+$FG[105]%(!.#.»)%{$reset_color%} '
+PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
+RPS1='${return_code}'
 
 # Autocompletion with arrow key interface
  zstyle ':completion:*' menu select
