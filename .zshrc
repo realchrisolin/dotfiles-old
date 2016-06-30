@@ -31,7 +31,7 @@ source ~/.antigen/antigen.zsh
 antigen-use oh-my-zsh
 
 # Set theme
-antigen-theme af-magic
+antigen-theme garyblessington
 
 # Syntax highlighting bundle
 antigen-bundle zsh-users/zsh-syntax-highlighting
