@@ -19,10 +19,11 @@ git submodule update
 
 for i in `ls -1A -I .git -I link.sh`;
 do
-    if [ -f $HOME/$i ]; then
-        mv  $HOME/$i $HOME/$i.orig
-     fi
-    ln -s $SRC/$i $HOME/$i
+	if [ -f $HOME/$i ]; then
+		mv  $HOME/$i $HOME/$i.orig
+	fi
+	echo "Symlinking $SRC/$i to $HOME/$i"
+	ln -s $SRC/$i $HOME/$i
 done
 rm -rf $HOME/.git
 rm $HOME/link.sh
