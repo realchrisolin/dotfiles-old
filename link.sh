@@ -10,10 +10,7 @@
 
 SRC=`pwd`
 
-if [ ! -d vim-git-aware ] ; then
-	git submodule init
-fi
-
+git submodule init
 git submodule update
 
 for i in `ls -1A -I .git -I link.sh`;
