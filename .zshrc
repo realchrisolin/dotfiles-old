@@ -13,6 +13,15 @@ colors
 promptinit
 compinit 
 
+#source aliases
+if [ -f "${HOME}/.aliases" ]; then
+    source "${HOME}/.aliases"
+fi
+if [ -f "${HOME}/.secretaliases" ]; then
+    source "${HOME}/.secretaliases"
+fi
+
+
 # source antigen and load oh-my-zsh
 if [ -f "${HOME}/.antigen/antigen.zsh" ]; then
     source ~/.antigen/antigen.zsh
