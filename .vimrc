@@ -54,10 +54,6 @@ autocmd BufReadPost *
       \ exe "normal! g`\"" |
       \ endif
 
-" configure proper tab intenting
-set tabstop=2
-set shiftwidth=2
-
 """"""""""""""""""""""""""""""
 " => Cygwin stuff
 """"""""""""""""""""""""""""""
