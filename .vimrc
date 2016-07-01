@@ -139,7 +139,7 @@ set backspace=indent,eol,start
 " Use <leader>ml to append.
 
 function! AppendModeline()
-    let l:modeline = printf("# vim:smd:ar:si:et:bg=dark:ts=%d:sw=%d ",
+    let l:modeline = printf("# vim:smd:ar:si:noet:bg=dark:sts=0:ts=%d:sw=%d ",
           \ &tabstop, &shiftwidth)
     let l:modeline = substitute(l:modeline, "%s", l:modeline, "")
     let l:line = line (".")
