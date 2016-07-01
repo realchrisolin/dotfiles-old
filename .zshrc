@@ -12,7 +12,7 @@ autoload -U compinit
 promptinit
 compinit 
 
-#source aliases and functions
+# source aliases and functions
 if [ -f "${HOME}/.aliases" ]; then
     source "${HOME}/.aliases"
 fi
@@ -56,16 +56,16 @@ $(git_prompt_info) \
 $FG[105]%(!.#.»)%{$reset_color%} '
 fi
 
-# Autocompletion with arrow key interface
+# autocompletion with arrow key interface
  zstyle ':completion:*' menu select
 
 # autocompletion of command line switches for aliases
 setopt completealiases
 
-#path additions
+# path additions
 PATH=$PATH:/home/chris/bin:/opt/android-sdk:/opt/android-sdk/tools:/opt/android-sdk/platform-tools
 
-#autoconfigure ssh-agent
+# autoconfigure ssh-agent
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
@@ -77,7 +77,7 @@ function start_agent {
      /usr/bin/ssh-add;
 }
 
-# Source SSH settings, if applicable
+# source SSH settings, if applicable
 
 if [ -f "${SSH_ENV}" ]; then
      . "${SSH_ENV}" > /dev/null
@@ -89,7 +89,7 @@ else
      start_agent;
 fi
 
-#other stuff
+# other stuff
 unsetopt NOMATCH #for android building
 unsetopt AUTO_NAME_DIRS
 export TERM=xterm-256color
