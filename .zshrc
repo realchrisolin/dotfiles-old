@@ -49,14 +49,15 @@ $FG[105]%(!.#.»)%{$reset_color%} '
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 RPS1='${return_code}'
 
-# syntax highlighting bundle
-antigen-bundle zsh-users/zsh-syntax-highlighting
+if [ $EXTENDEDPROMPT -eq 1 ]; then
+	PROMPT='$FG[124][%y]%{$reset_color%}%  $FG[188]%n@%m%  \
+$FG[032]%~ \
+$(git_prompt_info) \
+$FG[105]%(!.#.»)%{$reset_color%} '
+fi
 
-# apply settings
-antigen-apply
-
-# autocompletion with arrow key interface
-zstyle ':completion:*' menu select
+# Autocompletion with arrow key interface
+ zstyle ':completion:*' menu select
 
 # autocompletion of command line switches for aliases
 setopt completealiases
