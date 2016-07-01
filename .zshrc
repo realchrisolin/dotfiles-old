@@ -1,5 +1,5 @@
 ########################################################
-# vim:smd:ar:si:et:bg=dark:ts=4:sw=4
+# vim:smd:ar:si:noet:bg=dark:sts=0:ts=4:sw=4
 # file: .zshrc
 # author: Chris Olin - http://chrisolin.com
 # purpose: personal zshrc configuration
