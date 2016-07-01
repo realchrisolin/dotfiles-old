@@ -173,8 +173,7 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 function! AppendHeader()
     let l:line = line (".")
     let l:line9 = append(l:line - 1, "########################################################")
-		let l:line8 = append(l:line - 1, "# license: ")
-		let l:line7 = append(l:line - 1, "# last modified: ")
+		let l:line7 = append(l:line - 1, "# license: ")
 		let l:line6 = printf("# created date: %s",
 					\ strftime("%m-%d-%Y"))
 		call append(l:line - 1, l:line6)
