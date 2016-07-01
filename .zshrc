@@ -9,6 +9,7 @@
 autoload -U colors
 autoload -U promptinit 
 autoload -U compinit
+colors
 promptinit
 compinit 
 
