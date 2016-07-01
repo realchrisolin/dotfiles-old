@@ -3,7 +3,7 @@
 # author: Chris Olin - http://chrisolin.com
 # purpose: screen rc file for work
 # last modified: Mon, Jun 03, 2013 11:23:13 AM
-# vim:smd:ar:si:et:bg=dark:ts=4:sw=4 
+# vim:smd:ar:si:noet:bg=dark:sts=0:ts=4:sw=4 
 ########################################################
 shell /bin/zsh
 defscrollback 9999
