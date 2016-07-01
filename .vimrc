@@ -173,6 +173,28 @@ function! AppendModeline()
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
+function! AppendHeader()
+    let l:line = line (".")
+    let l:line9 = append(l:line - 1, "########################################################")
+		let l:line8 = append(l:line - 1, "# license: ")
+		let l:line7 = append(l:line - 1, "# last modified: ")
+		let l:line6 = printf("# created date: %s",
+					\ strftime("%m-%d-%Y"))
+		call append(l:line - 1, l:line6)
+		let l:line5 = append(l:line - 1, "# purpose: ")
+		let l:line4 = append(l:line - 1, "# author: Chris Olin - http://chrisolin.com")
+		let l:line3 = append(l:line - 1, "# file: ")
+		let l:line2 = printf("# vim:smd:ar:si:noet:bg=dark:sts=0:ts=%d:sw=%d",
+					\	&tabstop, &shiftwidth)
+		call append(l:line - 1, l:line2)
+		let l:line1 = append(l:line - 1, "########################################################")
+    let l:line2 = substitute(l:line2, "%s", l:line2, "")
+
+
+endfunction
+nnoremap <silent> <Leader>hd :call AppendHeader()<CR>
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""
 " => Insert header
 """"""""""""""""""""""""""""""""""""""""""""""""
