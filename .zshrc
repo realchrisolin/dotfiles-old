@@ -50,7 +50,7 @@ $FG[105]%(!.#.»)%{$reset_color%} '
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 RPS1='${return_code}'
 
-if [ $EXTENDEDPROMPT -eq 1 ]; then
+if [[ -n $EXTENDEDPROMPT ]]; then
 	PROMPT='$FG[124][%y]%{$reset_color%}%  $FG[188]%n@%m%  \
 $FG[032]%~ \
 $(git_prompt_info) \
