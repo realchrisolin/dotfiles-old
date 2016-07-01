@@ -66,9 +66,9 @@ set backspace=indent,eol,start
 
 " I don't like backup/temp files scattered all over the place
 set backup
-set backupdir=/cygdrive/c/WINDOWS/Temp
-set backupskip=/cygdrive/c/WINDOWS/Temp/*
-set directory=/cygdrive/c/WINDOWS/Temp
+set backupdir=/tmp/
+set backupskip=/tmp/*
+set directory=/tmp/
 set writebackup
 
 " In many terminal emulators the mouse works just fine, thus enable it.
