@@ -20,6 +20,7 @@ execute pathogen#infect()
 """""""""""""""""""""""""""""
 " => The Basics
 """""""""""""""""""""""""""""
+" SSH ONLY ISSUE
 " DO NOT ENABLE THE GitBranch() FUNCTION ON LINE 89!
 " It causes strange charaters, like ^[OA, to appear
 " when scrolling or editing a file in vi.
