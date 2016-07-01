@@ -8,15 +8,26 @@
 "Last modified:Mon, Jun 24, 2013 11:51:18 AM
 """""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""
+" => Initialization"
+"""""""""""""""""""""""""""""
+"autocmd BufWritePre * :%s/\s\+$//e
 "Source plugins
-source $HOME/vim-git-aware/vimrc.template
+source $HOME/.vim/bundle/vim-git-aware/vimrc.template
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
 
 """""""""""""""""""""""""""""
 " => The Basics
 """""""""""""""""""""""""""""
-filetype plugin indent on
+" SSH ONLY ISSUE
+" DO NOT ENABLE THE GitBranch() FUNCTION ON LINE 89!
+" It causes strange charaters, like ^[OA, to appear
+" when scrolling or editing a file in vi.
+"
+set nocompatible smd ar si noet bg=dark sts=0 ts=4 sw=4
 syntax on
-set nocompatible hlsearch smd ar si et bg=dark ts=4 sw=4
+filetype plugin indent on
 
 "Insert datestamp
 :nnoremap <F5> "=strftime("%c")<CR>P
@@ -43,15 +54,11 @@ autocmd BufReadPost *
       \ exe "normal! g`\"" |
       \ endif
 
-" configure proper tab intenting
-set tabstop=2
-set shiftwidth=2
-
 """"""""""""""""""""""""""""""
 " => Cygwin stuff
 """"""""""""""""""""""""""""""
 "copy to clipboard
-:nnoremap <leader>c :'<,'>w !xclip -i -selection clipboard,primary<cr>
+:nnoremap <leader>c :'<,'>w !cat > /dev/clipboard<cr>
 
 "remove ^M dos line endings
 :nnoremap <leader>m :%s///<cr>
@@ -61,9 +68,9 @@ set backspace=indent,eol,start
 
 " I don't like backup/temp files scattered all over the place
 set backup
-set backupdir=/tmp/
-set backupskip=/tmp/*
-set directory=/tmp/
+set backupdir=/cygdrive/c/WINDOWS/Temp
+set backupskip=/cygdrive/c/WINDOWS/Temp/*
+set directory=/cygdrive/c/WINDOWS/Temp
 set writebackup
 
 " In many terminal emulators the mouse works just fine, thus enable it.
@@ -76,7 +83,7 @@ set writebackup
 """"""""""""""""""""""""""""""
 " Just a simple substitute. Be sure to change this to your own home directory.
 function! CurDir()
-return substitute(getcwd(), '/cygdrive/c/Documents and Settings/olichris', "~", "g")
+return substitute(getcwd(), '/cygdrive/c/Users/Colin', "~", "g")
 endfunction
 
 " Just a blantantly obvious reminder when we're in paste mode
@@ -154,7 +161,7 @@ map <leader>s? z=
 " Use <leader>ml to append.
 
 function! AppendModeline()
-    let l:modeline = printf("# vim:smd:ar:si:et:bg=dark:ts=%d:sw=%d ",
+    let l:modeline = printf("# vim:smd:ar:si:noet:bg=dark:sts=0:ts=%d:sw=%d ",
           \ &tabstop, &shiftwidth)
     let l:modeline = substitute(l:modeline, "%s", l:modeline, "")
     let l:line = line (".")
@@ -163,9 +170,32 @@ function! AppendModeline()
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
+function! AppendHeader()
+    let l:line = line (".")
+    let l:line9 = append(l:line - 1, "########################################################")
+		let l:line7 = append(l:line - 1, "# license: ")
+		let l:line6 = printf("# created date: %s",
+					\ strftime("%m-%d-%Y"))
+		call append(l:line - 1, l:line6)
+		let l:line5 = append(l:line - 1, "# purpose: ")
+		let l:line4 = append(l:line - 1, "# author: Chris Olin - http://chrisolin.com")
+		let l:line3 = append(l:line - 1, "# file: ")
+		let l:line2 = printf("# vim:smd:ar:si:noet:bg=dark:sts=0:ts=%d:sw=%d",
+					\	&tabstop, &shiftwidth)
+		call append(l:line - 1, l:line2)
+		let l:line1 = append(l:line - 1, "########################################################")
+    let l:line2 = substitute(l:line2, "%s", l:line2, "")
+
+
+endfunction
+nnoremap <silent> <Leader>hd :call AppendHeader()<CR>
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""
 " => Insert header
 """"""""""""""""""""""""""""""""""""""""""""""""
 " All the fun is in this file so we can comment one line to disable it.
+
+" This shit is actually really irritating, so I'm commenting it out
 
 "source $HOME/.vimheader
