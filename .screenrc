@@ -1,11 +1,9 @@
 ########################################################
 # file: .screenrc
 # author: Chris Olin - http://chrisolin.com
-# purpose: personal screen rc file
 # created date: 03-05-2011
-# last modified: Fri 17 May 2013 03:43:57 PM EDT
-# license:
-# vim:smd:ar:si:et:bg=dark:ts=4:sw=4
+# purpose: screen rc file
+# vim:smd:ar:si:noet:bg=dark:sts=0:ts=4:sw=4 
 ########################################################
 
 term screen-256color
