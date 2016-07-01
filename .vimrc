@@ -1,34 +1,38 @@
 """""""""""""""""""""""""""""""""""""""""
 "Author=> Chris Olin (www.chrisolin.com)
 "
-"Purpose => vim configuration for cygwin
+"Purpose => vim configuration for cygwin (work)
 "
 "Created date: 08-16-2012
-"
-"Last modified: Wed Feb  6 13:09:00 2013
 """""""""""""""""""""""""""""""""""""""""
 
-" DO NOT ENABLE THE GitBranch() FUNCTION ON LINE 89!
-" It causes strange charaters, like ^[OA, to appear
-" when scrolling or editing a file in vi.
-
-syntax on
-set nocompatible smd ar si et bg=dark ts=4 sw=4 
+"""""""""""""""""""""""""""""
+" => Initialization"
+"""""""""""""""""""""""""""""
+"autocmd BufWritePre * :%s/\s\+$//e
+"Source plugins
+source $HOME/.vim/bundle/vim-git-aware/vimrc.template
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
 
 """""""""""""""""""""""""""""
 " => The Basics
 """""""""""""""""""""""""""""
-"Insert datestamp!
+" SSH ONLY ISSUE
+" DO NOT ENABLE THE GitBranch() FUNCTION ON LINE 89!
+" It causes strange charaters, like ^[OA, to appear
+" when scrolling or editing a file in vi.
+"
+set nocompatible smd ar si noet bg=dark sts=0 ts=4 sw=4
+syntax on
+filetype plugin indent on
+
+"Insert datestamp
 :nnoremap <F5> "=strftime("%c")<CR>P
 :inoremap <F5> <C-R>=strftime("%c")<CR>
 
-"Turn on line numbers:
-"set number
 " Toggle line numbers and fold column for easy copying:
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
-
-filetype plugin indent off
-autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 
 "Quick switching through buffer tabs
 :nnoremap <F11> :tabp<CR>
@@ -44,12 +48,12 @@ nmap <leader>w :w!<cr>
 
 " Return to last edit position (You want this!) *N*
 autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \ exe "normal! g`\"" |
+      \ endif
 
 """"""""""""""""""""""""""""""
-" => Statusline
+" => Cygwin stuff
 """"""""""""""""""""""""""""""
 "copy to clipboard
 :nnoremap <leader>c :'<,'>w !xclip -i -selection clipboard,primary<cr>
@@ -67,15 +71,14 @@ set backupskip=/tmp/*
 set directory=/tmp/
 set writebackup
 
-"Git branch
-function! GitBranch()
-    let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
-    if branch != ''
-        return '   Git Branch: ' . substitute(branch, '\n', '', 'g')
-    en
-    return ''
-endfunction
+" In many terminal emulators the mouse works just fine, thus enable it.
+"if has('mouse')
+"      set mouse=a
+"      endif
 
+""""""""""""""""""""""""""""""
+" => Functions
+""""""""""""""""""""""""""""""
 " Just a simple substitute. Be sure to change this to your own home directory.
 function! CurDir()
 return substitute(getcwd(), '$HOME', "~", "g")
@@ -89,6 +92,12 @@ function! HasPaste()
     return ''
 endfunction
 
+""""""""""""""""""""""""""""""
+" => Statusline
+""""""""""""""""""""""""""""""
+" Always hide the statusline
+set laststatus=2
+
 " Format the statusline
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L%{GitBranch()}
 " set statusline=\ %{HasPaste()}%f\ \ %{&ff}%y%m%r%h\ %w\ CWD:\ %r%{CurDir()}%h\ \ Line:\ %l/%L
@@ -101,7 +110,7 @@ set statusline=
 set statusline +=%1*\%{HasPaste()}\ %*                  "got paste mode?
 set statusline +=%4*%{&ff}%*                            "file format
 set statusline +=%3*%y%*                                "file type
-"set statusline +=%6*\ %{GitBranch()}                    "git branch, if it exists (KEEP DISABLED! BREAKS STUFF!)
+set statusline +=%6*\ %{GitBranch()}                    "git branch, if it exists
 if cwd != cwfp                                          "this is to get rid of absolute path spam
     set statusline +=%1*\ CWD:\ \%<%{CurDir()}          "current working directory
 en
@@ -126,7 +135,7 @@ hi User6 ctermfg=3
 "I don't like long, endless lines when typing e-mails.
 au BufRead /tmp/mutt-* set tw=75
 "Except I have a habit going back and rewording sentences and VIM doesn't automagically adjust lines. ,r will now reformat the current paragraph!
-nmap <leader>r gqap  
+nmap <leader>r gqap
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -141,8 +150,6 @@ map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
 
-set backspace=indent,eol,start
-
 """""""""""""""""""""""""""""""""""""""""""""""
 " => Insert modeline
 """""""""""""""""""""""""""""""""""""""""""""""
@@ -152,7 +159,7 @@ set backspace=indent,eol,start
 " Use <leader>ml to append.
 
 function! AppendModeline()
-    let l:modeline = printf("# vim:smd:ar:si:et:bg=dark:ts=%d:sw=%d ",
+    let l:modeline = printf("# vim:smd:ar:si:noet:bg=dark:sts=0:ts=%d:sw=%d ",
           \ &tabstop, &shiftwidth)
     let l:modeline = substitute(l:modeline, "%s", l:modeline, "")
     let l:line = line (".")
@@ -161,9 +168,32 @@ function! AppendModeline()
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
+function! AppendHeader()
+    let l:line = line (".")
+    let l:line9 = append(l:line - 1, "########################################################")
+		let l:line7 = append(l:line - 1, "# license: ")
+		let l:line6 = printf("# created date: %s",
+					\ strftime("%m-%d-%Y"))
+		call append(l:line - 1, l:line6)
+		let l:line5 = append(l:line - 1, "# purpose: ")
+		let l:line4 = append(l:line - 1, "# author: Chris Olin - http://chrisolin.com")
+		let l:line3 = append(l:line - 1, "# file: ")
+		let l:line2 = printf("# vim:smd:ar:si:noet:bg=dark:sts=0:ts=%d:sw=%d",
+					\	&tabstop, &shiftwidth)
+		call append(l:line - 1, l:line2)
+		let l:line1 = append(l:line - 1, "########################################################")
+    let l:line2 = substitute(l:line2, "%s", l:line2, "")
+
+
+endfunction
+nnoremap <silent> <Leader>hd :call AppendHeader()<CR>
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""
 " => Insert header
 """"""""""""""""""""""""""""""""""""""""""""""""
 " All the fun is in this file so we can comment one line to disable it.
+
+" This shit is actually really irritating, so I'm commenting it out
 
 "source $HOME/.vimheader
