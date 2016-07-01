@@ -4,8 +4,6 @@
 "Purpose => vim configuration for cygwin (work)
 "
 "Created date: 08-16-2012
-"
-"Last modified:Mon, Jun 24, 2013 11:51:18 AM
 """""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""
