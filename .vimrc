@@ -20,12 +20,11 @@ execute pathogen#infect()
 """""""""""""""""""""""""""""
 " => The Basics
 """""""""""""""""""""""""""""
-
 " DO NOT ENABLE THE GitBranch() FUNCTION ON LINE 89!
 " It causes strange charaters, like ^[OA, to appear
 " when scrolling or editing a file in vi.
-
-set nocompatible smd ar si et bg=dark ts=4 sw=4
+"
+set nocompatible smd ar si noet bg=dark sts=0 ts=4 sw=4
 syntax on
 filetype plugin indent on
 
