@@ -17,7 +17,7 @@ fi
 
 git submodule update
 
-for i in `ls -1A -I .git -I link.sh`;
+for i in `ls -1A -I .git -I link.sh -I README`;
 do
 	if [ -f $HOME/$i ]; then
 		echo -e "\e[1;33mExisting file '$i' found, renaming to '$i.orig'"
