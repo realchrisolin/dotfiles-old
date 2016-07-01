@@ -14,7 +14,7 @@ colors
 promptinit
 compinit
 
-#source aliases
+# source aliases
 if [ -f "${HOME}/.aliases" ]; then
     source "${HOME}/.aliases"
 fi
@@ -57,16 +57,16 @@ $(git_prompt_info) \
 $FG[105]%(!.#.»)%{$reset_color%} '
 fi
 
-# Autocompletion with arrow key interface
+# autocompletion with arrow key interface
  zstyle ':completion:*' menu select
 
-# Autocompletion of command line switches for aliases
+# autocompletion of command line switches for aliases
  setopt completealiases
 
-#set display, needed for CygwinX/xclip
+# set display, needed for CygwinX/xclip
 export DISPLAY=:0
 
-#autoconfigure ssh-agent
+# autoconfigure ssh-agent
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
@@ -78,7 +78,7 @@ function start_agent {
      /usr/bin/ssh-add;
 }
 
-# Source SSH settings, if applicable
+# source SSH settings, if applicable
 
 if [ -f "${SSH_ENV}" ]; then
      . "${SSH_ENV}" > /dev/null
@@ -90,7 +90,7 @@ else
      start_agent;
 fi
 
-#other stuff
+# other stuff
 export PATH=$PATH:/usr/local/bin:$HOME/bin
 export CYGWIN="mintty winsymlinks:native"
 export TERM=xterm-256color
@@ -98,4 +98,3 @@ export SCREENDIR=/tmp/uscreens/S-$USERNAME
 export EDITOR=vim
 export JAVA_HOME="/cygdrive/c/ProgramFiles/Java/jdk1.8.0_25" #I set a symlink pointing ProgramFiles to Program Files under C: to fix an issue with the space in Program Files not being escaped
 export CLASSPATH=$CLASSPATH:$HOME/bin
-#cd $HOME #this sets the CWD to $HOME so it doesn't default to My Documents
