@@ -65,7 +65,7 @@ endfunction
 
 " Just a simple substitute. Be sure to change this to your own home directory.
 function! CurDir()
-    return substitute(getcwd(), '/home/chris/', "~/", "g")
+return substitute(getcwd(), '$HOME', "~", "g")
 endfunction
 
 " Just a blantantly obvious reminder when we're in paste mode
