@@ -92,7 +92,7 @@ fi
 
 # other stuff
 export PATH=$PATH:/usr/local/bin:$HOME/bin
-export CYGWIN="mintty winsymlinks:native"
+export CYGWIN="mintty winsymlinks:nativeforce"
 export TERM=xterm-256color
 export SCREENDIR=/tmp/uscreens/S-$USERNAME
 export EDITOR=vim
