@@ -17,6 +17,9 @@ compinit
 if [ -f "${HOME}/.aliases" ]; then
     source "${HOME}/.aliases"
 fi
+if [ -f "${HOME}/.workaliases" ]; then
+    source "${HOME}/.workaliases"
+fi
 if [ -f "${HOME}/.secretaliases" ]; then
     source "${HOME}/.secretaliases"
 fi
