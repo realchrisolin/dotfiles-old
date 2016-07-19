@@ -98,5 +98,6 @@ export PATH=$HOME/bin:$PATH:/usr/local/bin
 export TERM=xterm-256color
 export SCREENDIR=/tmp/uscreens/S-$USERNAME
 export EDITOR=vim
+export GIT_ROOT=$HOME/stash/learn-bootstrap
 #export TNL_SERVER=bh.sc4.proofpoint.com
 #cd $HOME #this sets the CWD to $HOME so it doesn't default to My Documents
