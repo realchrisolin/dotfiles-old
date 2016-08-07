@@ -51,3 +51,5 @@
 	autosetuprebase = always
 [push]
 	default = matching
+[review "review.cyanogenmod.org"]
+	username = awildcolin
