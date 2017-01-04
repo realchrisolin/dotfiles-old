@@ -8,6 +8,14 @@
 ########################################################
 #!/bin/bash
 
+net session > /dev/null 2>&1
+
+if [ $? -ne 0 ]; then
+	    echo -n "This must be run with Windows administrator privileges! Exiting."
+		    exit 126
+fi
+
+CYGWIN="winsymlinks:nativeforce"
 SRC=`pwd`
 
 git submodule init
