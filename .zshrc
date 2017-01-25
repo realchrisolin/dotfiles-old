@@ -100,4 +100,5 @@ export TERM=xterm-256color
 export LANG="en_US.UTF-8"
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
 unset GREP_OPTIONS # getting rid of that godforsaken warning message about this variable being depricated every time I use grep
