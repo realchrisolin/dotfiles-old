@@ -23,7 +23,7 @@ execute pathogen#infect()
 " It causes strange charaters, like ^[OA, to appear
 " when scrolling or editing a file in vi.
 "
-set nocompatible smd ar si noet bg=dark sts=0 ts=4 sw=4
+set nocompatible smd ar si noet bg=dark sts=0 autoindent noexpandtab ts=4 sw=4
 syntax on
 filetype on
 filetype plugin indent on
