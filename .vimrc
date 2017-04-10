@@ -25,6 +25,7 @@ execute pathogen#infect()
 "
 set nocompatible smd ar si noet bg=dark sts=0 ts=4 sw=4
 syntax on
+filetype on
 filetype plugin indent on
 
 "Insert datestamp
@@ -40,8 +41,8 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = "-"
+let g:mapleader = "-"
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -53,7 +54,7 @@ autocmd BufReadPost *
       \ endif
 
 """"""""""""""""""""""""""""""
-" => Cygwin stuff
+" => Useful stuff
 """"""""""""""""""""""""""""""
 "copy to clipboard
 :nnoremap <leader>c :'<,'>w !xclip -i -selection clipboard,primary<cr>
