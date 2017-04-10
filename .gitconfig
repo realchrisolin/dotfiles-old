@@ -8,6 +8,7 @@
     ai = add --interactive
     c = commit
     cm = commit -m
+	am = commit -a -m
     ca = commit --amend
     caa = commit -a --amend -C HEAD
 
