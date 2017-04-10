@@ -11,7 +11,7 @@
 
 SRC=`pwd`
 
-if [ ! -d vim-git-aware ] ; then
+if [ ! -d .vim/bundle/vim-git-aware ] ; then
 	git submodule init
 fi
 
