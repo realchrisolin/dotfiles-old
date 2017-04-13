@@ -1,7 +1,7 @@
 ########################################################
 # vim:smd:ar:si:et:bg=dark:ts=4:sw=4
 # file: .zshrc
-# author: Chris Olin - http://chrisolin.com
+# author: Chris Olin - https://www.chrisolin.com
 # purpose: personal zshrc configuration
 # created date: 03-18-2013
 # license:
@@ -30,6 +30,7 @@ antigen-apply
 # set autosuggestions hotkey to ctrl+space
 bindkey '^ ' autosuggest-accept
 
+#======= set prompt "theme" =======#
 # configure prompt colors
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
@@ -48,6 +49,7 @@ $(git_prompt_info) \
 $FG[105]%(!.#.»)%{$reset_color%} '
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 RPS1='${return_code}'
+#==================================#
 
 # autocompletion with arrow key interface
 zstyle ':completion:*' menu select
@@ -55,7 +57,7 @@ zstyle ':completion:*' menu select
 # autocompletion of command line switches for aliases
 setopt completealiases
 
-# set environment variables for gpg-agent.
+# set environment variables for gpg-agent
 gpg_agent_info="${HOME}/.gnupg/gpg-agent-info"
 if [ -f $gpg_agent_info ]
 then
@@ -64,14 +66,11 @@ then
 	    export GPG_TTY=$(tty)
 fi
 
-# path additions
-PATH=$PATH:/home/chris/bin:/opt/android-sdk:/opt/android-sdk/tools:/opt/android-sdk/platform-tools:$HOME/.gem/ruby/2.2.0/bin
-
 # autoconfigure ssh-agent
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
-     echo "Initialising new SSH agent..."
+     echo "Starting ssh-agent..."
      /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
      echo succeeded
      chmod 600 "${SSH_ENV}"
@@ -95,7 +94,4 @@ fi
 export PATH=$PATH:/usr/local/bin:$HOME/bin
 export TERM=xterm-256color
 export LANG="en_US.UTF-8"
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 unset GREP_OPTIONS # getting rid of that godforsaken warning message about this variable being depricated every time I use grep
