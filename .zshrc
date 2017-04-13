@@ -6,11 +6,6 @@
 # created date: 03-18-2013
 # license:
 ########################################################
-autoload -U colors
-autoload -U promptinit 
-autoload -U compinit
-promptinit
-compinit 
 
 # source aliases
 if [ -f "${HOME}/.aliases" ]; then
@@ -26,6 +21,12 @@ if [ ! -d ~/.antigen ]; then
 fi
 source ~/.antigen/antigen.zsh
 antigen-use oh-my-zsh
+
+# antigen init
+antigen init ~/.antigenrc
+
+# apply settings
+antigen-apply
 
 # configure prompt colors
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
@@ -45,12 +46,6 @@ $(git_prompt_info) \
 $FG[105]%(!.#.»)%{$reset_color%} '
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 RPS1='${return_code}'
-
-# syntax highlighting bundle
-antigen-bundle zsh-users/zsh-syntax-highlighting
-
-# apply settings
-antigen-apply
 
 # autocompletion with arrow key interface
 zstyle ':completion:*' menu select
