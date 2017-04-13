@@ -6,10 +6,11 @@ antigen-use oh-my-zsh
 # antigen bundles
 antigen bundles <<BUNDLES
 common-aliases
+command-not-found
 git
 git-extras
 git-flow
-command-not-found
+sudo
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 BUNDLES
