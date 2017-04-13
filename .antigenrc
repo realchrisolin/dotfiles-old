@@ -11,5 +11,3 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 BUNDLES
 
-# set autosuggestions hotkey to ctrl+space
-bindkey '^ ' autosuggest-accept

@@ -27,6 +27,9 @@ antigen init ~/.antigenrc
 # apply settings
 antigen-apply
 
+# set autosuggestions hotkey to ctrl+space
+bindkey '^ ' autosuggest-accept
+
 # configure prompt colors
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
