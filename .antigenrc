@@ -1,0 +1,15 @@
+# vim:smd:ar:si:noet:bg=dark:sts=0:ts=4:sw=4:ft=zsh
+
+# use OMZ
+antigen-use oh-my-zsh
+
+# antigen bundles
+antigen bundles <<BUNDLES
+git
+command-not-found
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
+BUNDLES
+
+# set autosuggestions hotkey to ctrl+space
+bindkey '^ ' autosuggest-accept

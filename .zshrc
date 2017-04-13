@@ -20,7 +20,6 @@ if [ ! -d ~/.antigen ]; then
     git clone https://github.com/zsh-users/antigen.git ~/.antigen
 fi
 source ~/.antigen/antigen.zsh
-antigen-use oh-my-zsh
 
 # antigen init
 antigen init ~/.antigenrc
