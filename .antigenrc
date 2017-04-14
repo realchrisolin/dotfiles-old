@@ -10,7 +10,13 @@ command-not-found
 git
 git-extras
 git-flow
+httpie
+nyan
+ruby
 sudo
+taskwarrior
+vagrant
+web-search
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 BUNDLES
