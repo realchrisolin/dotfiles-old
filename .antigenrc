@@ -5,6 +5,7 @@ antigen-use oh-my-zsh
 
 # antigen bundles
 antigen bundles <<BUNDLES
+colorize
 common-aliases
 command-not-found
 git
