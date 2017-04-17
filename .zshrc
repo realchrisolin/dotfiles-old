@@ -95,6 +95,7 @@ fi
 
 #other stuff
 export PATH=$PATH:/usr/local/bin:$HOME/bin
+export CYGWIN="mintty winsymlinks:nativeforce"
 export TERM=xterm-256color
 export LANG="en_US.UTF-8"
 unset GREP_OPTIONS # getting rid of that godforsaken warning message about this variable being depricated every time I use grep
