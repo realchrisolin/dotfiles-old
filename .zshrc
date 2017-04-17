@@ -25,7 +25,7 @@ source ~/.antigen/antigen.zsh
 antigen init ~/.antigenrc
 
 # apply settings
-antigen-apply
+antigen apply
 
 # set autosuggestions hotkey to ctrl+space
 bindkey '^ ' autosuggest-accept
