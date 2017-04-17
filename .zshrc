@@ -33,6 +33,9 @@ bindkey '^ ' autosuggest-accept
 # speed up pasting, workaround from https://github.com/zsh-users/zsh-autosuggestions/issues/141
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 
+# always load zprof for perf troubleshooting
+zmodload zsh/zprof
+
 #======= set prompt "theme" =======#
 # configure prompt colors
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
