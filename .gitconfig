@@ -4,6 +4,7 @@
 [core]
 	autocrlf = input
 	safecrlf = true
+	trustctime = false
 [alias]
     ai = add --interactive
     c = commit
