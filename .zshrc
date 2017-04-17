@@ -15,17 +15,18 @@ if [ -f "${HOME}/.secretaliases" ]; then
     source "${HOME}/.secretaliases"
 fi
 
-# source and load the oh-my-zsh library
-if [ ! -d ~/.antigen ]; then
-    git clone https://github.com/zsh-users/antigen.git ~/.antigen
+# source and load ZSH plugin manager
+if [ ! -d ~/.zplug ]; then
+    git clone https://github.com/zplug/zplug.git ~/.zplug
+    source ~/.zplug/init.zsh && zplug update --self
 fi
-source ~/.antigen/antigen.zsh
+source ~/.zplug/init.zsh
 
-# antigen init
-antigen init ~/.antigenrc
+# zplug init
+source ~/.zplugrc
 
 # apply settings
-antigen apply
+zplug load --verbose
 
 # set autosuggestions hotkey to ctrl+space
 bindkey '^ ' autosuggest-accept
