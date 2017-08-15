@@ -9,12 +9,6 @@
 # compinit is slow in cygwin, let's speed it up
 # Speed up startup by only checking once a day
 # if the cached .zcompdump file should be regenerated
-autoload -Uz compinit
-if [[ $( date +'%Y%j' ) > $( date +'%Y%j' -r ~/.zcompdump ) ]]; then
-  compinit
-else
-  compinit -C
-fi
 
 # source aliases
 if [ -f "${HOME}/.aliases" ]; then
